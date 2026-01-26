@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes moveBackground {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 0% -1000%;
+  }
+}
+
+@layer base {
+  :root {
+    /* Default to Dark Mode */
+    --background: #0f0f12;
+    --foreground: #ffffff;
+  }
+
+  /* Light Mode overrides */
+  .light {
+    --background: #f7f6f8;
+    --foreground: #0f0f12;
+  }
+
+  /* Redundant but safe for class-based switching */
+  .dark {
+    --background: #0f0f12;
+    --foreground: #ffffff;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden transition-colors duration-700;
+  }
+}
+
+@layer components {
+
+  /* Using standard CSS for glass panels to avoid @apply parsing issues with arbitrary values */
+  .glass-panel {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-panel {
+    background-color: rgba(21, 17, 24, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* bg-black/5 */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.05);
+    transition: all 500ms ease-out;
+  }
+
+  .dark .glass-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(131, 17, 212, 0.3);
+    /* primary/30 */
+  }
+
+  .dark .glass-card:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    /* white/8 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-zinc-800 rounded-full hover:bg-slate-400 dark:hover:bg-zinc-700;
+  }
+}
+
+/* Utilities for visual effects */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
