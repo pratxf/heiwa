@@ -78,7 +78,7 @@ export const ReviewCarousel = () => {
                     {MARQUEE_REVIEWS.map((review, index) => (
                         <div
                             key={`${review.id}-${index}`}
-                            className="min-w-[300px] md:min-w-[350px] rounded-3xl p-8 relative overflow-hidden backdrop-blur-md border border-white/10 dark:border-white/5 shadow-xl flex flex-col justify-between h-[360px] bg-white/50 dark:bg-black/20 hover:bg-white/80 dark:hover:bg-black/40 transition-colors"
+                            className="min-w-[300px] md:min-w-[350px] rounded-3xl p-8 relative overflow-hidden md:backdrop-blur-md border border-white/10 dark:border-white/5 shadow-lg md:shadow-xl flex flex-col justify-between h-[360px] bg-white/90 dark:bg-zinc-900/90 md:bg-white/50 md:dark:bg-black/20 transition-colors will-change-transform"
                         >
                             {/* Quote Icon */}
                             <div className="absolute top-6 left-6 opacity-10 text-foreground">

@@ -12,8 +12,8 @@ import sunnyAnimation from "@/public/Sunny.json"; // Alias or relative path if n
 // --- Components ---
 
 const Stars = () => {
-    // Generate random stars
-    const stars = Array.from({ length: 50 }).map((_, i) => ({
+    // Generate random stars (Reduced for mobile performance)
+    const stars = Array.from({ length: 25 }).map((_, i) => ({
         id: i,
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
@@ -52,7 +52,7 @@ const Stars = () => {
 
 const Moon = () => (
     <motion.div
-        className="absolute top-[15%] right-[10%] w-64 h-64 flex items-center justify-center"
+        className="absolute top-[5%] right-[5%] w-32 h-32 md:top-[15%] md:right-[10%] md:w-64 md:h-64 flex items-center justify-center"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2 }}
@@ -73,7 +73,7 @@ const Moon = () => (
 
 const Sun = () => (
     <motion.div
-        className="absolute top-[15%] right-[10%] w-64 h-64"
+        className="absolute top-[5%] right-[5%] w-32 h-32 md:top-[15%] md:right-[10%] md:w-64 md:h-64"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
@@ -116,7 +116,7 @@ const Clouds = () => {
 };
 
 const WindLines = () => {
-    const lines = Array.from({ length: 6 }).map((_, i) => ({ // Reduced from 8 to 6 for less density
+    const lines = Array.from({ length: 3 }).map((_, i) => ({ // Reduced to 3 for mobile performance
         id: i,
         top: `${Math.random() * 90 + 5}%`, // Spread across 5% - 95%
         width: Math.random() * 200 + 100,

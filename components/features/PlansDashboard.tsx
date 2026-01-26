@@ -11,7 +11,7 @@ export const PlansDashboard = () => {
     return (
         <div className="w-full flex flex-col items-center gap-8 px-4">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-center text-foreground/90">
-                Choose your path to <span className="text-primary">Heiwa</span>
+                Choose your path to <span className="text-purple-500">Heiwa</span>
             </h2>
             <p className="text-foreground/60 font-light text-center max-w-md -mt-4">
                 Whether you're just starting or ready for deep immersion, Heiwa supports your journey.
