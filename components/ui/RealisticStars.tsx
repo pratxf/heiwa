@@ -7,7 +7,9 @@ export const RealisticStars = () => {
     const [stars, setStars] = useState<any[]>([]);
 
     useEffect(() => {
-        const starCount = 200;
+        // Responsive star count: 50 for mobile, 200 for desktop
+        const isMobile = window.innerWidth < 768;
+        const starCount = isMobile ? 50 : 200;
         const newStars = [];
 
         for (let i = 0; i < starCount; i++) {
@@ -37,14 +39,32 @@ export const RealisticStars = () => {
                     background: white;
                     border-radius: 50%;
                     opacity: 0;
-                    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+                    will-change: opacity, transform;
                 }
 
+                /* Mobile Defaults (Lightweight) */
                 .star.small { width: 1px; height: 1px; }
-                .star.medium { width: 2px; height: 2px; box-shadow: 0 0 4px rgba(255, 255, 255, 0.6); }
-                .star.large { width: 3px; height: 3px; box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); }
+                .star.medium { width: 2px; height: 2px; }
+                .star.large { width: 3px; height: 3px; box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); }
 
+                /* Base Animation (Opacity/Scale only) */
                 @keyframes shimmer {
+                    0% { opacity: 0.2; transform: scale(0.8); }
+                    50% { opacity: 1; transform: scale(1.2); }
+                    100% { opacity: 0.2; transform: scale(0.8); }
+                }
+
+                /* Desktop Enhancements (Heavy Glows & More Detail) */
+                @media (min-width: 768px) {
+                    .star { box-shadow: 0 0 2px rgba(255, 255, 255, 0.8); }
+                    .star.medium { box-shadow: 0 0 4px rgba(255, 255, 255, 0.6); }
+                    .star.large { box-shadow: 0 0 6px rgba(255, 255, 255, 0.8); }
+                    
+                    /* Use heavier animation on desktop */
+                    .star { animation-name: shimmer-desktop !important; }
+                }
+
+                @keyframes shimmer-desktop {
                     0% { opacity: 0.2; transform: scale(0.8); }
                     50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px rgba(255, 255, 255, 1); }
                     100% { opacity: 0.2; transform: scale(0.8); }
@@ -57,11 +77,20 @@ export const RealisticStars = () => {
                     height: 4px;
                     background: #fff;
                     border-radius: 50%;
-                    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
-                                0 0 0 8px rgba(255, 255, 255, 0.1), 
-                                0 0 20px rgba(255, 255, 255, 1);
+                    /* Mobile Shooting Star (Simpler shadow) */
+                    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1), 0 0 10px rgba(255, 255, 255, 0.5);
                     animation: shoot 3s linear infinite;
                     opacity: 0;
+                    will-change: transform, opacity;
+                }
+
+                @media (min-width: 768px) {
+                    .shooting-star {
+                        /* Desktop Shooting Star (Full Glow) */
+                        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
+                                    0 0 0 8px rgba(255, 255, 255, 0.1), 
+                                    0 0 20px rgba(255, 255, 255, 1);
+                    }
                 }
 
                 .shooting-star::before {

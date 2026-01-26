@@ -11,44 +11,7 @@ import sunnyAnimation from "@/public/Sunny.json"; // Alias or relative path if n
 
 // --- Components ---
 
-const Stars = () => {
-    // Generate random stars (Reduced for mobile performance)
-    const stars = Array.from({ length: 25 }).map((_, i) => ({
-        id: i,
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        size: Math.random() * 2 + 1,
-        duration: Math.random() * 3 + 2,
-        delay: Math.random() * 2,
-    }));
 
-    return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {stars.map((s) => (
-                <motion.div
-                    key={s.id}
-                    className="absolute bg-white rounded-full"
-                    style={{
-                        top: s.top,
-                        left: s.left,
-                        width: s.size,
-                        height: s.size
-                    }}
-                    animate={{
-                        opacity: [0.2, 0.8, 0.2, 1, 0.3], // Glimmer pattern
-                        scale: [1, 1.2, 0.9, 1.1, 1],
-                    }}
-                    transition={{
-                        duration: s.duration,
-                        repeat: Infinity,
-                        delay: s.delay,
-                        ease: "easeIn",
-                    }}
-                />
-            ))}
-        </div>
-    );
-};
 
 const Moon = () => (
     <motion.div
