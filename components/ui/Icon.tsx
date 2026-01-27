@@ -73,7 +73,11 @@ import {
     LogOut,
     Save,
     Trash2,
-    XCircle
+    Trash2,
+    XCircle,
+    CloudDrizzle,
+    BedDouble,
+    Infinity
 } from 'lucide-react';
 
 const XBrandIcon = ({ className, ...props }: any) => (
@@ -170,6 +174,9 @@ const iconMap: Record<string, IconType | React.FC<any>> = {
     Trash2,
     XCircle,
     AlertTriangle,
+    CloudDrizzle,
+    BedDouble,
+    Infinity,
 };
 
 export const Icon = ({ name, className, strokeWidth = 1.5 }: { name: string; className?: string, strokeWidth?: number }) => {

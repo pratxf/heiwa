@@ -23,7 +23,7 @@ export interface Sound {
 export const SOUNDS: Sound[] = [
     // FREE Category
     { id: "cave_droplet", name: "Cave Droplet", category: "Free", path: "/sounds/Free/Cave Droplet.mp3", icon: "Droplet", isPremium: false },
-    { id: "cozy_rain", name: "Cozy Rain", category: "Free", path: "/sounds/Free/Cozy Rain.mp3", icon: "CloudRain", isPremium: false },
+    { id: "cozy_rain", name: "Cozy Rain", category: "Free", path: "/sounds/Free/Cozy Rain.mp3", icon: "CloudDrizzle", isPremium: false },
     { id: "crackling_fire", name: "Crackling Fire", category: "Free", path: "/sounds/Free/Crackling fire.mp3", icon: "Flame", isPremium: false },
     { id: "deep_ocean", name: "Deep Ocean", category: "Free", path: "/sounds/Free/Deep Ocean.mp3", icon: "Waves", isPremium: false },
 
@@ -58,16 +58,16 @@ export const SOUNDS: Sound[] = [
     // Zen Collection
     { id: "zen_buddhist", name: "Zen Buddhist", category: "Premium", path: "/sounds/Premium/Zen Buddhist.mp3", icon: "Mountain", isPremium: true },
     { id: "zen_garden", name: "Zen Garden", category: "Premium", path: "/sounds/Premium/Zen Garden.mp3", icon: "Flower2", isPremium: true },
-    { id: "zen_meditation", name: "Zen Meditation", category: "Premium", path: "/sounds/Premium/Zen Meditation.mp3", icon: "Orbit", isPremium: true },
+    { id: "zen_meditation", name: "Zen Meditation", category: "Premium", path: "/sounds/Premium/Zen Meditation.mp3", icon: "Infinity", isPremium: true },
     { id: "zen_river", name: "Zen River", category: "Premium", path: "/sounds/Premium/Zen River.mp3", icon: "Anchor", isPremium: true },
     { id: "zen_yoga", name: "Zen Yoga", category: "Premium", path: "/sounds/Premium/Zen Yoga.mp3", icon: "Activity", isPremium: true },
     { id: "koto_zen", name: "Koto Zen", category: "Premium", path: "/sounds/Premium/Koto Zen.mp3", icon: "Music2", isPremium: true },
 
     // Ambient & Nature
     { id: "baltic_shoreline", name: "Baltic Shoreline", category: "Premium", path: "/sounds/Premium/Baltic Shoreline.mp3", icon: "Compass", isPremium: true },
-    { id: "blue_piano", name: "Blue Piano", category: "Premium", path: "/sounds/Premium/Blue Piano.mp3", icon: "Piano", isPremium: true },
+    { id: "blue_piano", name: "Blue Piano", category: "Premium", path: "/sounds/Premium/Blue Piano.mp3", icon: "Music", isPremium: true },
     { id: "dark_rain", name: "Dark Rain", category: "Premium", path: "/sounds/Premium/Dark Rain.mp3", icon: "CloudRain", isPremium: true },
-    { id: "deep_sleep", name: "Deep Sleep", category: "Premium", path: "/sounds/Premium/Deep Sleep.mp3", icon: "Moon", isPremium: true },
+    { id: "deep_sleep", name: "Deep Sleep", category: "Premium", path: "/sounds/Premium/Deep Sleep.mp3", icon: "BedDouble", isPremium: true },
     { id: "focus", name: "Focus", category: "Premium", path: "/sounds/Premium/Focus.mp3", icon: "Brain", isPremium: true },
     { id: "forest_ambience", name: "Forest Ambience", category: "Premium", path: "/sounds/Premium/Forest Ambience.mp3", icon: "Tent", isPremium: true },
     { id: "meditation", name: "Meditation", category: "Premium", path: "/sounds/Premium/Meditation.mp3", icon: "Sparkles", isPremium: true },
