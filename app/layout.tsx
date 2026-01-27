@@ -20,14 +20,6 @@ export const metadata: Metadata = {
     description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
     url: "https://heiwa.fun",
     siteName: "Heiwa",
-    images: [
-      {
-        url: "https://heiwa.fun/og-image.png?v=3",
-        width: 1200,
-        height: 630,
-        alt: "Heiwa Ambient Soundscape",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -35,7 +27,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Heiwa - Ambient Soundscapes for Focus, Relax & Sleep",
     description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
-    images: ["https://heiwa.fun/og-image.png?v=3"],
     creator: "@heiwa_fun", // Optional, if they have a handle
   },
 };
