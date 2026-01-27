@@ -76,7 +76,10 @@ import {
     XCircle,
     CloudDrizzle,
     BedDouble,
-    Infinity
+    Infinity,
+    Mountain,
+    Activity,
+    LandPlot // For Zen Garden alternative if needed, but Flower2 is good.
 } from 'lucide-react';
 
 const XBrandIcon = ({ className, ...props }: any) => (
@@ -176,6 +179,10 @@ const iconMap: Record<string, IconType | React.FC<any>> = {
     CloudDrizzle,
     BedDouble,
     Infinity,
+    Mountain,
+    Activity,
+    Flower2, // Explicit mapping for Zen Garden
+    LandPlot,
 };
 
 export const Icon = ({ name, className, strokeWidth = 1.5 }: { name: string; className?: string, strokeWidth?: number }) => {

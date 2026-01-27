@@ -60,14 +60,16 @@ export const ReviewCarousel = () => {
             </div>
 
             {/* Carousel Container */}
-            <div className="relative w-full flex">
-                {/* Gradient Masks */}
-                <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
-
+            <div
+                className="relative w-full flex"
+                style={{
+                    maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+                    WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+                }}
+            >
                 {/* Marquee Track */}
                 <motion.div
-                    className="flex gap-6 pl-4"
+                    className="flex gap-6 pl-4 py-12"
                     animate={{ x: "-50%" }}
                     transition={{
                         repeat: Infinity,
