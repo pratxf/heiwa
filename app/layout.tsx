@@ -13,16 +13,16 @@ const notoSansJP = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://heiwa.fun"),
-  title: "Heiwa | Ambient Soundscape",
-  description: "Breathe in. Breathe out. A journey to tranquility.",
+  title: "Heiwa - Ambient Soundscapes for Focus, Relax & Sleep",
+  description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
   openGraph: {
-    title: "Heiwa | Ambient Soundscape",
-    description: "Breathe in. Breathe out. A journey to tranquility.",
+    title: "Heiwa - Ambient Soundscapes for Focus, Relax & Sleep",
+    description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
     url: "https://heiwa.fun",
     siteName: "Heiwa",
     images: [
       {
-        url: "/og-image.png?v=2",
+        url: "https://heiwa.fun/og-image.png?v=3",
         width: 1200,
         height: 630,
         alt: "Heiwa Ambient Soundscape",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heiwa | Ambient Soundscape",
-    description: "Breathe in. Breathe out. A journey to tranquility.",
-    images: ["/og-image.png?v=2"],
+    title: "Heiwa - Ambient Soundscapes for Focus, Relax & Sleep",
+    description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
+    images: ["https://heiwa.fun/og-image.png?v=3"],
     creator: "@heiwa_fun", // Optional, if they have a handle
   },
 };
