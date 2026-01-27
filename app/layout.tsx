@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Heiwa",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png?v=2",
         width: 1200,
         height: 630,
         alt: "Heiwa Ambient Soundscape",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Heiwa | Ambient Soundscape",
     description: "Breathe in. Breathe out. A journey to tranquility.",
-    images: ["/og-image.png"],
+    images: ["/og-image.png?v=2"],
     creator: "@heiwa_fun", // Optional, if they have a handle
   },
 };
