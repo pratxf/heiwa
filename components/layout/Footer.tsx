@@ -12,7 +12,7 @@ export const Footer = () => {
 
     const links = [
         { name: 'Home', href: '/' },
-        { name: 'Pricing', href: '/pricing' },
+        // { name: 'Pricing', href: '/pricing' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
         { name: 'Terms', href: '/terms' }

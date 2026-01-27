@@ -40,9 +40,12 @@ export default function Home() {
               <div className="w-full mt-4 mb-24">
                 <TimerDashboard />
               </div>
-              <div id="plans" className="w-full mb-24">
-                <PlansDashboard />
-              </div>
+              {/* Plans Hidden as per request */}
+              {false && (
+                <div id="plans" className="w-full mb-24">
+                  <PlansDashboard />
+                </div>
+              )}
               <div className="w-full">
                 <ReviewCarousel />
               </div>
