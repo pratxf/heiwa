@@ -28,7 +28,8 @@ export const CategoryPills = () => {
             </h2>
             {/* White Container Pill */}
             {/* Container - Transparent on Mobile, Glass on Desktop */}
-            <div className="w-full max-w-full flex flex-col md:flex-row items-center gap-4 md:gap-0 bg-transparent p-0 shadow-none border-none md:bg-white/80 md:dark:bg-black/40 md:backdrop-blur-md md:rounded-full md:p-2 md:shadow-xl md:border md:border-white/20">
+            {/* Container - Transparent on Mobile, Glass on Desktop */}
+            <div className="w-full md:w-fit max-w-full flex flex-col md:flex-row items-center gap-4 md:gap-0 bg-transparent p-0 shadow-none border-none md:bg-white/80 md:dark:bg-black/40 md:backdrop-blur-md md:rounded-full md:p-2 md:shadow-xl md:border md:border-white/20">
                 {/* Categories - Glass on Mobile, Transparent on Desktop */}
                 <div className="flex flex-wrap justify-center items-center gap-1 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-[2.5rem] p-2 shadow-xl border border-white/20 md:bg-transparent md:dark:bg-transparent md:backdrop-filter-none md:rounded-none md:p-0 md:shadow-none md:border-none">
                     {CATEGORIES.map((cat) => {

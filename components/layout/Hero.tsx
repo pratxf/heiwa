@@ -80,13 +80,7 @@ export const Hero = () => {
 
             {/* Buttons */}
             <div className="flex items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-                <button
-                    onClick={() => isGlobalPlaying ? toggleGlobalPlay() : openAuthModal()}
-                    className="h-14 px-8 rounded-full font-bold font-display text-white shadow-lg transition-all hover:scale-105 active:scale-95 flex items-center gap-2 bg-primary hover:bg-primary/90 shadow-[0_0_20px_rgba(131,17,212,0.3)] hover:shadow-[0_0_30px_rgba(131,17,212,0.5)]"
-                >
-                    Get Started
-                    <Icon name="ArrowRight" className="w-4 h-4 ml-1" />
-                </button>
+
 
                 <button
                     onClick={handleScrollToGrid}
