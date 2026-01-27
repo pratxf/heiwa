@@ -24,7 +24,7 @@ export const CategoryPills = () => {
     return (
         <div id="categories" className="w-full max-w-none mx-auto mb-12 px-4 md:px-10 flex flex-col items-center scroll-mt-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-8 text-foreground/90">
-                Choose your Heiwa
+                Choose your <span className="text-primary">Heiwa</span>
             </h2>
             {/* White Container Pill */}
             {/* Container - Transparent on Mobile, Glass on Desktop */}

@@ -28,7 +28,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto mb-16 pt-8 px-4 relative z-20"
+            className="flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto mb-16 pt-32 md:pt-40 px-4 relative z-20"
         >
 
 
