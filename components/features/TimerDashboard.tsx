@@ -126,7 +126,7 @@ export const TimerDashboard = () => {
 
                 {/* Big Display (Only show if NOT in custom mode or if Timer is Active) */}
                 {(!isCustomMode || timerDuration) && (
-                    <div className="font-serif text-8xl md:text-9xl tracking-wider mb-8 text-foreground drop-shadow-sm tabular-nums select-none opacity-90">
+                    <div className="font-serif text-6xl md:text-9xl tracking-wider mb-8 text-foreground drop-shadow-sm tabular-nums select-none opacity-90">
                         {fmt(dH)}:{fmt(dM)}:{fmt(dS)}
                     </div>
                 )}
