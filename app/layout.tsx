@@ -15,6 +15,29 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://heiwa.fun"),
   title: "Heiwa | Ambient Soundscape",
   description: "Breathe in. Breathe out. A journey to tranquility.",
+  openGraph: {
+    title: "Heiwa | Ambient Soundscape",
+    description: "Breathe in. Breathe out. A journey to tranquility.",
+    url: "https://heiwa.fun",
+    siteName: "Heiwa",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Heiwa Ambient Soundscape",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Heiwa | Ambient Soundscape",
+    description: "Breathe in. Breathe out. A journey to tranquility.",
+    images: ["/og-image.png"],
+    creator: "@heiwa_fun", // Optional, if they have a handle
+  },
 };
 
 export default function RootLayout({
