@@ -73,7 +73,6 @@ import {
     LogOut,
     Save,
     Trash2,
-    Trash2,
     XCircle,
     CloudDrizzle,
     BedDouble,
