@@ -12,11 +12,6 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Image() {
-    // Fetch font for Satori (ImageResponse)
-    const interSemiBold = await fetch(
-        new URL('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_EeA.woff')
-    ).then((res) => res.arrayBuffer())
-
     return new ImageResponse(
         (
             <div
@@ -28,7 +23,7 @@ export default async function Image() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontFamily: '"Inter"',
+                    fontFamily: 'sans-serif',
                     backgroundImage: 'radial-gradient(circle at center, #1a1a2e 0%, #0f0f12 100%)',
                 }}
             >
@@ -46,27 +41,32 @@ export default async function Image() {
                     }}
                 />
 
-                {/* Logo Text */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                    {/* Icon could go here, but text is cleaner without svg paths */}
-                    <div style={{ color: 'white', fontSize: 130, fontWeight: 600, letterSpacing: '-0.05em' }}>Heiwa</div>
+                {/* Logo SVG & Text Container */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+                    {/* Embedded SVG Logo */}
+                    <svg
+                        width="200"
+                        height="160"
+                        viewBox="0 0 100 80"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M25 15 C 20 25, 20 55, 25 65 L 35 65 C 30 55, 30 25, 35 15 Z" fill="#8311d4" />
+                        <path d="M75 15 C 80 25, 80 55, 75 65 L 65 65 C 70 55, 70 25, 65 15 Z" fill="#8311d4" />
+                        <path d="M10 35 C 40 45, 60 45, 90 35 L 90 45 C 60 55, 40 55, 10 45 Z" fill="#8311d4" />
+                    </svg>
+
+                    {/* Logo Text - Using system font since fetch might fail */}
+                    <div style={{ color: 'white', fontSize: 100, fontWeight: 800, letterSpacing: '-0.05em' }}>Heiwa</div>
                 </div>
 
-                <div style={{ color: '#a855f7', fontSize: 40, marginTop: 20, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                <div style={{ color: '#a855f7', fontSize: 32, marginTop: 10, fontWeight: 500, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                     Ambient Soundscape
                 </div>
             </div>
         ),
         {
             ...size,
-            fonts: [
-                {
-                    name: 'Inter',
-                    data: interSemiBold,
-                    style: 'normal',
-                    weight: 600,
-                },
-            ],
         }
     )
 }
