@@ -27,8 +27,10 @@ export const CategoryPills = () => {
                 Choose your Heiwa
             </h2>
             {/* White Container Pill */}
-            <div className="bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-[2.5rem] md:rounded-full p-2 shadow-xl border border-white/20 flex flex-col md:flex-row items-center gap-4 md:gap-0 max-w-full">
-                <div className="flex flex-wrap justify-center items-center gap-1">
+            {/* Container - Transparent on Mobile, Glass on Desktop */}
+            <div className="w-full max-w-full flex flex-col md:flex-row items-center gap-4 md:gap-0 bg-transparent p-0 shadow-none border-none md:bg-white/80 md:dark:bg-black/40 md:backdrop-blur-md md:rounded-full md:p-2 md:shadow-xl md:border md:border-white/20">
+                {/* Categories - Glass on Mobile, Transparent on Desktop */}
+                <div className="flex flex-wrap justify-center items-center gap-1 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-[2.5rem] p-2 shadow-xl border border-white/20 md:bg-transparent md:dark:bg-transparent md:backdrop-filter-none md:rounded-none md:p-0 md:shadow-none md:border-none">
                     {CATEGORIES.map((cat) => {
                         const isActive = active === cat;
                         return (
@@ -76,29 +78,32 @@ export const CategoryPills = () => {
                 <div className="hidden md:block w-px h-6 bg-black/10 dark:bg-white/10 mx-2 self-center" />
 
                 {/* Sort Toggle */}
-                <div className="flex items-center gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-full border border-black/5 dark:border-white/5">
-                    <button
-                        onClick={() => setSortOrder("popular")}
-                        className={cn(
-                            "px-3 py-1.5 rounded-full text-xs font-bold transition-all",
-                            sortOrder === "popular"
-                                ? "bg-white text-black shadow-md dark:bg-white/10 dark:text-white dark:border dark:border-white/10"
-                                : "text-foreground/60 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5"
-                        )}
-                    >
-                        Popular
-                    </button>
-                    <button
-                        onClick={() => setSortOrder("az")}
-                        className={cn(
-                            "px-3 py-1.5 rounded-full text-xs font-bold transition-all",
-                            sortOrder === "az"
-                                ? "bg-white text-black shadow-md dark:bg-white/10 dark:text-white dark:border dark:border-white/10"
-                                : "text-foreground/60 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5"
-                        )}
-                    >
-                        A - Z
-                    </button>
+                {/* Sort Toggle - Glass on Mobile, Transparent on Desktop */}
+                <div className="flex items-center gap-1 bg-white/80 dark:bg-black/40 backdrop-blur-md rounded-full p-2 shadow-xl border border-white/20 md:bg-transparent md:dark:bg-transparent md:backdrop-filter-none md:shadow-none md:border-none md:p-0">
+                    <div className="flex items-center gap-1 bg-black/5 dark:bg-white/5 p-1 rounded-full border border-black/5 dark:border-white/5">
+                        <button
+                            onClick={() => setSortOrder("popular")}
+                            className={cn(
+                                "px-3 py-1.5 rounded-full text-xs font-bold transition-all",
+                                sortOrder === "popular"
+                                    ? "bg-white text-black shadow-md dark:bg-white/10 dark:text-white dark:border dark:border-white/10"
+                                    : "text-foreground/60 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5"
+                            )}
+                        >
+                            Popular
+                        </button>
+                        <button
+                            onClick={() => setSortOrder("az")}
+                            className={cn(
+                                "px-3 py-1.5 rounded-full text-xs font-bold transition-all",
+                                sortOrder === "az"
+                                    ? "bg-white text-black shadow-md dark:bg-white/10 dark:text-white dark:border dark:border-white/10"
+                                    : "text-foreground/60 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5"
+                            )}
+                        >
+                            A - Z
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
