@@ -12,6 +12,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://heiwa.fun"),
   title: "Heiwa | Ambient Soundscape",
   description: "Breathe in. Breathe out. A journey to tranquility.",
 };
