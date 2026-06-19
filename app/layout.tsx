@@ -1,57 +1,68 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+import type { Viewport } from "next";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { GlobalLogic } from "@/components/providers/GlobalLogic";
 
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  variable: "--font-zen", // Now used globally
-  weight: ["300", "400", "500", "700", "900"],
-});
+export const viewport: Viewport = {
+  themeColor: "#f8f3e8",
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://heiwa.fun"),
-  title: "Heiwa - Ambient Soundscapes for Focus, Relax & Sleep",
-  description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
+  title: {
+    default: "Heiwa Sleep Sounds App | Create Personal Soundscapes",
+    template: "%s | Heiwa",
+  },
+  description: "Mix rain, fire, wind, forest, ocean, and calming noise into personal soundscapes for sleep, focus, reading, and relaxation.",
+  applicationName: "Heiwa",
+  keywords: [
+    "sleep sounds app",
+    "soundscape app",
+    "rain sounds for sleep",
+    "relaxing sounds",
+    "nature sounds app",
+    "white noise app",
+    "brown noise app",
+    "focus sounds",
+    "ambient sounds",
+    "sound mixer app",
+    "sleep timer app",
+  ],
+  authors: [{ name: "Heiwa", url: "https://heiwa.fun" }],
+  creator: "Heiwa",
+  publisher: "Heiwa",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Heiwa - Ambient Soundscapes for Focus, Relax & Sleep",
-    description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
+    type: "website",
+    locale: "en_US",
     url: "https://heiwa.fun",
     siteName: "Heiwa",
-    locale: "en_US",
-    type: "website",
+    title: "Heiwa Sleep Sounds App | Create Personal Soundscapes",
+    description: "Build personal soundscapes with rain, fire, wind, forest, ocean, and more.",
+    images: [{ url: "/images/curated-forest.png", width: 1536, height: 1024, alt: "A calm sunlit forest representing Heiwa soundscapes" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heiwa - Ambient Soundscapes for Focus, Relax & Sleep",
-    description: "Discover Heiwa, your sanctuary for ambient sounds. Experience a journey of balance and mindfulness with high-quality soundscapes tailored for focus, relaxation, and deep sleep.",
-    creator: "@heiwa_fun", // Optional, if they have a handle
+    title: "Heiwa Sleep Sounds App",
+    description: "Create personal soundscapes for sleep, focus, and relaxation.",
+    images: ["/images/curated-forest.png"],
   },
+  icons: {
+    icon: "/screenshots/app-icon.png",
+    apple: "/screenshots/app-icon.png",
+  },
+  manifest: "/manifest.webmanifest",
+  category: "health",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={cn(
-        notoSansJP.variable,
-        "font-display min-h-screen relative selection:bg-primary/30 font-sans"
-      )}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <GlobalLogic />
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
