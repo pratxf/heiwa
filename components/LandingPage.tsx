@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -37,6 +38,17 @@ import {
 import { Arrow, Check, Pause, Play, Plus, Star } from "./Icons";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 import { APP_STORE_URL } from "@/lib/app-store";
+
+function AppleMark({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className}>
+      <path
+        fill="currentColor"
+        d="M16.64 12.56c-.03-2.73 2.23-4.05 2.34-4.11a5.03 5.03 0 0 0-3.95-2.14c-1.67-.17-3.27 1-4.12 1-.88 0-2.19-.98-3.61-.95A5.24 5.24 0 0 0 2.9 9.05c-1.91 3.32-.49 8.2 1.35 10.89.92 1.31 1.99 2.78 3.42 2.73 1.39-.06 1.92-.88 3.6-.88 1.66 0 2.16.88 3.61.85 1.5-.03 2.44-1.32 3.33-2.64a10.87 10.87 0 0 0 1.52-3.1 4.75 4.75 0 0 1-3.09-4.34Zm-2.7-8.01A4.82 4.82 0 0 0 15.04 1a4.91 4.91 0 0 0-3.18 1.65 4.62 4.62 0 0 0-1.13 3.35 4.07 4.07 0 0 0 3.21-1.45Z"
+      />
+    </svg>
+  );
+}
 
 function MaterialIcon({ name, className = "" }: { name: string; className?: string }) {
   const icons: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
@@ -196,12 +208,10 @@ function Logo({ light = false, large = false }: { light?: boolean; large?: boole
   );
 }
 
-function Button({ children, dark = true, href = APP_STORE_URL }: { children: React.ReactNode; dark?: boolean; href?: string }) {
+function Button({ children, dark = true, href = "#download" }: { children: React.ReactNode; dark?: boolean; href?: string }) {
   return (
     <a
       href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       className={`group inline-flex items-center justify-center gap-3 rounded-full px-6 py-3.5 text-sm font-bold transition hover:-translate-y-0.5 ${
         dark ? "bg-ink text-white shadow-lg shadow-black/10 hover:bg-[#1c3027]" : "bg-white text-ink"
       }`}
@@ -215,9 +225,7 @@ function Button({ children, dark = true, href = APP_STORE_URL }: { children: Rea
 function AppStoreButton() {
   return (
     <motion.a
-      href={APP_STORE_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+      href="#download"
       whileHover={{ y: -3, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 380, damping: 24 }}
@@ -813,89 +821,73 @@ export default function LandingPage() {
   const [playingSound, setPlayingSound] = useState<string | null>(null);
 
   return (
-    <main>
-      <section className="grain relative min-h-screen overflow-hidden bg-cream">
-        <div className="absolute -left-48 bottom-[-22rem] h-[40rem] w-[40rem] rounded-full bg-[#bcebd8]/65 blur-3xl" />
-        <div className="absolute -right-40 top-[-22rem] h-[42rem] w-[42rem] rounded-full bg-[#cceee0]/70 blur-3xl" />
-        <div className="relative min-h-[860px] overflow-hidden sm:min-h-[940px] lg:min-h-[max(100vh,1080px)]">
-          <SiteHeader />
+      <main>
+        <section className="bg-[#f6f3ee] px-4 pb-8 pt-5 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[1180px]">
+            <SiteHeader />
 
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-30 mx-auto flex max-w-5xl flex-col items-center px-4 pb-0 pt-6 text-center sm:px-5 sm:pt-10 lg:pt-8"
-          >
-            <h1 className="max-w-4xl text-[clamp(2.45rem,11vw,4.25rem)] font-extrabold leading-[1] tracking-[-0.035em] text-[#10231c]">
-              Fall asleep with sounds <span className="block text-[#169672]">made by you.</span>
-            </h1>
-            <p className="mt-4 max-w-xl text-base font-normal leading-[1.45] text-[#6f7c75] sm:mt-5 sm:text-xl">
-              Build personal soundscapes with rain, fire, wind, forest, ocean, and more.
-            </p>
-            <div className="relative z-30 mt-6 flex justify-center">
-              <AppStoreButton />
+            <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_1fr]">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative overflow-hidden rounded-[2rem] bg-[#f0f0f0] px-8 py-10 sm:px-12 sm:py-14 lg:min-h-[680px]"
+              >
+                <div className="relative z-10 max-w-[440px] pt-4 sm:pt-10">
+                  <div className="mb-7 flex flex-wrap items-center gap-3 text-[15px] font-medium tracking-[-0.01em] text-[#6f6a63]">
+                    <div className="flex items-center gap-1 text-[#f3a63a]" aria-label="5 star rating">
+                      {Array.from({ length: 5 }, (_, index) => (
+                        <svg key={index} viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4 fill-current">
+                          <path d="M10 1.8 12.47 6.8l5.52.8-4 3.9.95 5.5L10 14.4 5.06 17l.95-5.5-4-3.9 5.52-.8Z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span>4.9 rating</span>
+                    <span className="text-[#c5bcb2]">·</span>
+                    <span>20k+ heiwa users</span>
+                  </div>
+                  <h1 className="text-[clamp(3.2rem,7vw,5.4rem)] font-semibold leading-[0.9] tracking-[-0.045em] text-black">
+                    Find calm
+                    <br />
+                    build focus
+                    <br />
+                    <span className="whitespace-nowrap">sleep deeper</span>
+                  </h1>
+                  <p className="mt-8 max-w-[420px] text-lg leading-[1.65] text-black/55">
+                    The Heiwa app helps you step out of the noise and create a personal soundscape for rest,
+                    focus, and meaningful quiet.
+                  </p>
+                  <div className="mt-10 flex flex-wrap items-center gap-4">
+                    <a
+                      href={APP_STORE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-[54px] items-center justify-center gap-2.5 rounded-full bg-black px-8 text-base font-medium text-white transition hover:scale-[1.02]"
+                    >
+                      <AppleMark className="h-5 w-5" />
+                      Get on App Store
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 28 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                className="relative overflow-hidden rounded-[2rem] bg-[#ffd94d] lg:min-h-[680px]"
+              >
+                <Image
+                  src="/images/hero-phone-scene.png"
+                  alt="Heiwa app shown on a phone"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="h-full w-full object-cover object-right"
+                />
+              </motion.div>
             </div>
-          </motion.div>
-
-          <div className="pointer-events-none absolute left-[11%] top-[31%] h-28 w-28 rounded-full border border-[#169672]/10" />
-          <div className="pointer-events-none absolute left-[8%] top-[28%] h-44 w-44 rounded-full border border-[#169672]/[.06]" />
-          <div className="pointer-events-none absolute right-[10%] top-[34%] h-32 w-32 rounded-full border border-[#169672]/10" />
-          <div className="pointer-events-none absolute right-[7%] top-[30%] h-52 w-52 rounded-full border border-[#169672]/[.06]" />
-          <MaterialIcon name="music_note" className="pointer-events-none absolute left-[17%] top-[39%] h-4 w-4 text-[#169672]/20" />
-          <MaterialIcon name="waves" className="pointer-events-none absolute right-[18%] top-[42%] h-5 w-5 text-[#169672]/20" />
-
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[47%] opacity-45" style={{ backgroundImage: "linear-gradient(rgba(17,32,25,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(17,32,25,.09) 1px, transparent 1px)", backgroundSize: "42px 42px", maskImage: "linear-gradient(to bottom, transparent, black)" }} />
-          <div className="absolute inset-x-0 bottom-[-13rem] mx-auto h-[39rem] w-[82%] rounded-[50%] bg-[#bcebd8] blur-3xl" />
-
-          <div className="absolute inset-x-0 bottom-[-7rem] z-20 mx-auto h-[540px] max-w-[1000px] sm:bottom-[-6rem] sm:h-[620px] lg:bottom-[-5rem]">
-            <motion.div
-              initial={{ opacity: 0, x: -70, y: 45, rotate: -11 }}
-              animate={{ opacity: 1, x: 0, y: 0, rotate: -7 }}
-              transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-5 left-[3%] z-10 hidden w-[34%] overflow-hidden rounded-[2.2rem] bg-cream shadow-[0_24px_60px_rgba(17,32,25,.14)] sm:left-[9%] sm:block sm:w-[28%] lg:left-[11%] lg:w-[26%]"
-            >
-              <Image
-                src="/screenshots/04-library-saved-mixes.png"
-                alt="Heiwa library screen"
-                width={918}
-                height={2048}
-                priority
-                className="h-auto w-full rounded-[2.2rem]"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 75, x: "-50%" }}
-              animate={{ opacity: 1, y: 0, x: "-50%" }}
-              transition={{ delay: 0.2, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute bottom-4 left-1/2 z-20 w-[72%] max-w-[330px] overflow-hidden rounded-[2.2rem] bg-cream shadow-[0_28px_75px_rgba(17,32,25,.20)] sm:w-[34%] sm:max-w-none sm:rounded-[2.5rem] lg:w-[32%]"
-            >
-              <Image
-                src="/screenshots/02-home.png"
-                alt="Heiwa home screen"
-                width={918}
-                height={2048}
-                priority
-                className="h-auto w-full rounded-[2.5rem]"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 70, y: 45, rotate: 11 }}
-              animate={{ opacity: 1, x: 0, y: 0, rotate: 7 }}
-              transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-5 right-[3%] z-10 hidden w-[34%] overflow-hidden rounded-[2.2rem] bg-cream shadow-[0_24px_60px_rgba(17,32,25,.14)] sm:right-[9%] sm:block sm:w-[28%] lg:right-[11%] lg:w-[26%]"
-            >
-              <Image
-                src="/screenshots/05-create-mix.png"
-                alt="Heiwa create mix screen"
-                width={918}
-                height={2048}
-                priority
-                className="h-auto w-full rounded-[2.2rem]"
-              />
-            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
       <FeaturesSection />
       <section aria-hidden="true" className="hidden">

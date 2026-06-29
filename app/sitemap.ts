@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${baseUrl}/blogs`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${baseUrl}/sleep-sounds`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/soundscape-app`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/rain-sounds-for-sleep`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
