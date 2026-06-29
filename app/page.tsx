@@ -1,5 +1,6 @@
 import LandingPage from "@/components/LandingPage";
 import type { Metadata } from "next";
+import { APP_STORE_URL } from "@/lib/app-store";
 
 export const metadata: Metadata = {
   title: "Sleep Sounds App and Personal Soundscape Mixer",
@@ -15,6 +16,8 @@ export default function Home() {
     applicationCategory: "HealthApplication",
     operatingSystem: "iOS",
     url: "https://heiwa.fun",
+    downloadUrl: APP_STORE_URL,
+    sameAs: [APP_STORE_URL],
     description: "A sleep sounds and soundscape mixer app for creating personal ambient sound mixes for sleep, focus, reading, and relaxation.",
     featureList: [
       "Mix multiple sounds",

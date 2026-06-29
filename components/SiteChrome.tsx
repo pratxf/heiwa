@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { APP_STORE_URL } from "@/lib/app-store";
 
 export function SiteLogo({ large = false }: { large?: boolean }) {
   return (
@@ -27,7 +28,9 @@ export function SiteHeader() {
         <Link className="transition hover:text-[#11936f]" href="/#blog">Blog</Link>
       </div>
       <Link
-        href="/#download"
+        href={APP_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="group hidden items-center gap-3 rounded-full bg-[#0d2f26] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_20px_rgba(13,47,38,.10)] transition hover:-translate-y-0.5 hover:bg-[#16483a] lg:inline-flex"
       >
         Download Heiwa
@@ -42,7 +45,7 @@ export function SiteHeader() {
             <Link onClick={() => setOpen(false)} href="/#features">Features</Link>
             <Link onClick={() => setOpen(false)} href="/#blog">Blog</Link>
             <Link onClick={() => setOpen(false)} href="/#reviews">Reviews</Link>
-            <Link onClick={() => setOpen(false)} href="/#download" className="rounded-full bg-[#20c997] px-5 py-3 text-center text-[#10231c]">Download Heiwa</Link>
+            <Link onClick={() => setOpen(false)} href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#20c997] px-5 py-3 text-center text-[#10231c]">Download Heiwa</Link>
           </div>
         </div>
       )}
@@ -52,7 +55,7 @@ export function SiteHeader() {
 
 function AppStoreBadge() {
   return (
-    <Link href="/#download" className="inline-flex items-center gap-2.5 rounded-xl border border-black/5 bg-white px-4 py-2.5 text-left text-black shadow-[0_10px_26px_rgba(13,47,38,.12)]">
+    <Link href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 rounded-xl border border-black/5 bg-white px-4 py-2.5 text-left text-black shadow-[0_10px_26px_rgba(13,47,38,.12)]">
       <svg className="h-7 w-7 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M17.05 12.54c-.03-3.18 2.6-4.71 2.72-4.78a5.84 5.84 0 0 0-4.6-2.49c-1.94-.2-3.82 1.16-4.81 1.16-1.02 0-2.55-1.14-4.21-1.11a6.1 6.1 0 0 0-5.13 3.13c-2.23 3.86-.57 9.54 1.57 12.66 1.07 1.53 2.32 3.23 3.98 3.17 1.62-.07 2.23-1.02 4.19-1.02 1.94 0 2.51 1.02 4.2.98 1.74-.03 2.84-1.54 3.87-3.08a12.64 12.64 0 0 0 1.77-3.6 5.53 5.53 0 0 1-3.55-5.02ZM13.9 3.22A5.62 5.62 0 0 0 15.18-.82a5.72 5.72 0 0 0-3.7 1.92 5.37 5.37 0 0 0-1.31 3.9 4.73 4.73 0 0 0 3.73-1.78Z" transform="translate(1.1 1.2) scale(.91)" />
       </svg>
@@ -66,7 +69,7 @@ function AppStoreBadge() {
 
 export function SiteFooter() {
   const groups = [
-    { title: "Product", items: [["Features", "/#features"], ["Download for iOS", "/#download"]] },
+    { title: "Product", items: [["Features", "/#features"], ["Download for iOS", APP_STORE_URL]] },
     { title: "Support", items: [["Contact", "/contact"], ["FAQ", "/#faq"], ["Delete Account", "/delete-account"]] },
     { title: "Legal", items: [["Privacy Policy", "/privacy-policy"], ["Terms of Use", "/terms"]] },
   ];
@@ -101,7 +104,7 @@ export function SiteFooter() {
           <div key={title}>
             <p className="mb-5 text-base font-semibold sm:text-[17px]">{title}</p>
             <div className="flex flex-col gap-3 text-[15px] text-[#6f7c75] sm:text-base">
-              {items.map(([label, href]) => <Link key={label} href={href} className="transition hover:text-[#168f70]">{label}</Link>)}
+              {items.map(([label, href]) => <Link key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="transition hover:text-[#168f70]">{label}</Link>)}
             </div>
           </div>
         ))}

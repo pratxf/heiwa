@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Check, Moon, SlidersHorizontal, Timer, Waves } from "lucide-react";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
+import { APP_STORE_URL } from "@/lib/app-store";
 
 export default function SeoLandingPage({
   eyebrow,
@@ -33,7 +34,7 @@ export default function SeoLandingPage({
           <p className="text-sm font-semibold text-[#168f70]">{eyebrow}</p>
           <h1 className="mt-5 text-[clamp(2.75rem,6vw,5rem)] font-medium leading-[1.02]">{title}</h1>
           <p className="mt-6 max-w-xl text-lg leading-[1.55] text-[#6f7c75] sm:text-xl">{intro}</p>
-          <Link href="/#download" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#0d2f26] px-6 py-3.5 text-sm font-semibold text-white">
+          <Link href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#0d2f26] px-6 py-3.5 text-sm font-semibold text-white">
             Download Heiwa
           </Link>
         </div>

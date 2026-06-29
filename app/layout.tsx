@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+import { APP_STORE_ID } from "@/lib/app-store";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -55,6 +56,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.webmanifest",
   category: "health",
+  other: {
+    "apple-itunes-app": `app-id=${APP_STORE_ID}`,
+  },
 };
 
 export default function RootLayout({

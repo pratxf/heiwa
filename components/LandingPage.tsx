@@ -36,6 +36,7 @@ import {
 } from "lucide-react";
 import { Arrow, Check, Pause, Play, Plus, Star } from "./Icons";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
+import { APP_STORE_URL } from "@/lib/app-store";
 
 function MaterialIcon({ name, className = "" }: { name: string; className?: string }) {
   const icons: Record<string, React.ComponentType<{ className?: string; strokeWidth?: number }>> = {
@@ -195,10 +196,12 @@ function Logo({ light = false, large = false }: { light?: boolean; large?: boole
   );
 }
 
-function Button({ children, dark = true, href = "#download" }: { children: React.ReactNode; dark?: boolean; href?: string }) {
+function Button({ children, dark = true, href = APP_STORE_URL }: { children: React.ReactNode; dark?: boolean; href?: string }) {
   return (
     <a
       href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       className={`group inline-flex items-center justify-center gap-3 rounded-full px-6 py-3.5 text-sm font-bold transition hover:-translate-y-0.5 ${
         dark ? "bg-ink text-white shadow-lg shadow-black/10 hover:bg-[#1c3027]" : "bg-white text-ink"
       }`}
@@ -212,7 +215,9 @@ function Button({ children, dark = true, href = "#download" }: { children: React
 function AppStoreButton() {
   return (
     <motion.a
-      href="#download"
+      href={APP_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       whileHover={{ y: -3, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 380, damping: 24 }}
