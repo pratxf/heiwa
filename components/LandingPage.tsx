@@ -880,6 +880,8 @@ export default function LandingPage() {
                 <Image
                   src="/images/hero-phone-scene.webp"
                   alt="Heiwa app shown on a phone"
+                  width={1536}
+                  height={1024}
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-full w-full object-cover object-right"
