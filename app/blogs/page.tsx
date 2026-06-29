@@ -85,32 +85,26 @@ export default function BlogsPage() {
 
       <section className="mx-auto grid max-w-7xl gap-6 px-5 pb-20 sm:px-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <article
+          <Link
+            href={post.href}
             key={post.href}
-            className="group overflow-hidden rounded-[2rem] border border-[#10231c]/8 bg-white shadow-[0_18px_45px_rgba(16,35,28,.06)]"
+            className="group block overflow-hidden rounded-[2rem] border border-[#10231c]/8 bg-white shadow-[0_18px_45px_rgba(16,35,28,.06)] transition hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(16,35,28,.1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#168f70]"
           >
-            <div className="relative h-64 overflow-hidden">
-              <Image
-                src={post.image}
-                alt={post.alt}
-                fill
-                sizes="(min-width: 1024px) 33vw, 100vw"
-                className="object-cover transition duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
-            <div className="p-7">
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#168f70]">{post.category}</p>
-              <h2 className="mt-4 text-[30px] font-medium leading-[1.05] tracking-[-0.04em]">{post.title}</h2>
-              <p className="mt-4 text-[17px] leading-[1.65] text-[#6f7c75]">{post.description}</p>
-              <Link
-                href={post.href}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#10231c] transition hover:text-[#168f70]"
-              >
+            <article>
+              <div className="relative h-64 overflow-hidden">
+                <Image src={post.image} alt={post.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover transition duration-500 group-hover:scale-[1.03]" />
+              </div>
+              <div className="p-7">
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#168f70]">{post.category}</p>
+                <h2 className="mt-4 text-[30px] font-medium leading-[1.05]">{post.title}</h2>
+                <p className="mt-4 text-[17px] leading-[1.65] text-[#6f7c75]">{post.description}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#10231c] transition group-hover:text-[#168f70]">
                 Read article
                 <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </article>
+                </span>
+              </div>
+            </article>
+          </Link>
         ))}
       </section>
 

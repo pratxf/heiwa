@@ -5,14 +5,15 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { APP_STORE_URL } from "@/lib/app-store";
+import ReadingProgress from "./ReadingProgress";
 
 export function SiteLogo({ large = false }: { large?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-3 font-semibold tracking-[-0.06em] text-[#10231c]">
-      <span className={`relative overflow-hidden ${large ? "h-12 w-12 rounded-[16px]" : "h-11 w-11 rounded-[14px]"}`}>
-        <Image src="/screenshots/app-icon.png" alt="" fill sizes={large ? "48px" : "40px"} className="object-cover" />
+      <span className={`relative overflow-hidden ${large ? "h-12 w-12 rounded-[16px]" : "h-9 w-9 rounded-xl"}`}>
+        <Image src="/screenshots/app-icon.png" alt="" fill sizes={large ? "48px" : "36px"} className="object-cover" />
       </span>
-      <span className={large ? "text-[30px]" : "text-[1.9rem]"}>{large ? "heiwa" : "Heiwa"}</span>
+      <span className={large ? "text-[30px]" : "text-[1.55rem]"}>{large ? "heiwa" : "Heiwa"}</span>
     </Link>
   );
 }
@@ -28,11 +29,12 @@ function AppleMark({ className = "" }: { className?: string }) {
   );
 }
 
-export function SiteHeader() {
+export function SiteHeader({ showReadingProgress = false }: { showReadingProgress?: boolean }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="relative z-30 mx-auto flex max-w-[1180px] items-center justify-between gap-6 px-4 py-5 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-[#10231c]/5 bg-[#f8f3e8]/90 backdrop-blur-xl">
+    <nav className="relative mx-auto flex max-w-[1180px] items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
       <SiteLogo />
       <div className="hidden items-center gap-10 text-[15px] font-medium text-black lg:flex">
         <Link className="transition hover:opacity-65" href="/#features">Features</Link>
@@ -44,7 +46,7 @@ export function SiteHeader() {
         href={APP_STORE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="hidden min-h-[52px] items-center justify-center gap-2.5 rounded-full bg-black px-7 text-sm font-medium text-white transition hover:scale-[1.02] lg:inline-flex"
+        className="hidden min-h-11 items-center justify-center gap-2 rounded-full bg-black px-5 text-[13px] font-medium text-white transition hover:scale-[1.02] lg:inline-flex"
       >
         <AppleMark className="h-4 w-4" />
         Get on App Store
@@ -64,6 +66,8 @@ export function SiteHeader() {
         </div>
       )}
     </nav>
+    {showReadingProgress && <ReadingProgress />}
+    </header>
   );
 }
 
@@ -96,12 +100,14 @@ export function SiteFooter() {
           <div className="absolute left-[18%] top-[-10%] h-40 w-40 rounded-full bg-white/6 blur-3xl" />
           <div className="absolute bottom-[-8rem] right-[-2rem] h-80 w-80 rounded-full bg-[#65d3ad]/30 blur-3xl" />
           <div className="absolute inset-y-0 left-0 w-full bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.09),transparent_28%),radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.08),transparent_24%)]" />
-          <div className="relative z-10 max-w-[450px]">
+          <div className="relative z-10 max-w-[620px]">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/58">Heiwa for everyday calm</p>
-            <h2 className="mt-4 text-[clamp(2.2rem,8vw,3.6rem)] font-medium leading-[0.97] tracking-[-0.05em] text-white">Make a little room for yourself.</h2>
+            <h2 className="mt-4 text-[clamp(2.2rem,8vw,3.6rem)] font-semibold leading-[0.9] text-white">
+              <span className="block sm:whitespace-nowrap">Make a little room</span>
+              <span className="block sm:whitespace-nowrap">for yourself.</span>
+            </h2>
             <p className="mt-5 max-w-[420px] text-base leading-[1.5] text-white/78 sm:text-[20px]">Create a soundscape for focus, sleep, or a quiet moment between everything else.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4"><AppStoreBadge /><span className="text-sm font-medium text-white/70">★★★★★ 4.9 rating · 20k+ Heiwa users</span></div>
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/62">Mix rain, fire, forest, and soft ambience into a space that feels like your own.</p>
           </div>
           <div className="absolute -bottom-[7.5rem] right-[8%] hidden aspect-[918/2048] w-[clamp(180px,16vw,230px)] rotate-[6deg] overflow-hidden rounded-[1.7rem] border-[5px] border-[#0b4c3d] bg-[#f8f3e8] shadow-[0_18px_44px_rgba(4,39,30,.22)] md:block">
             <Image src="/screenshots/05-create-mix.png" alt="Heiwa create mix screen" fill sizes="280px" className="object-cover object-top" />
