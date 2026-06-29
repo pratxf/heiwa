@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SeoLandingPage from "@/components/SeoLandingPage";
 
 export const metadata: Metadata = {
-  title: "Soundscape App and Ambient Sound Mixer",
+  title: "Soundscape App and Ambient Sound Mixer for iPhone",
   description: "Create custom ambient soundscapes for sleep, focus, reading, studying, and relaxation with rain, fire, ocean, forest, music, and calming noise.",
   alternates: { canonical: "/soundscape-app" },
   openGraph: {
@@ -15,10 +15,11 @@ export const metadata: Metadata = {
 export default function SoundscapeAppPage() {
   return (
     <SeoLandingPage
+      path="/soundscape-app"
       eyebrow="Personal soundscape app"
       title="Shape the atmosphere around you"
       intro="Heiwa is an ambient sound mixer for building personal spaces with rain, fire, wind, ocean, forest, music, white noise, and more."
-      image="/images/layer-control-landscape.png"
+      image="/images/layer-control-landscape.webp"
       imageAlt="A watercolor lake and forest representing an ambient soundscape"
       sections={[
         {
@@ -42,6 +43,11 @@ export default function SoundscapeAppPage() {
             "Downloaded sounds can support calm routines even when a stable connection is unavailable, subject to the features included in your version of Heiwa.",
           ],
         },
+      ]}
+      related={[
+        { title: "How to create your own sleep sound mix", href: "/blogs/how-to-create-your-own-sleep-sound-mix" },
+        { title: "Offline sleep sounds app", href: "/offline-sleep-sounds-app" },
+        { title: "Sleep sound mixer app", href: "/sleep-sounds" },
       ]}
     />
   );

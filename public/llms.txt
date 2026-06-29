@@ -1,0 +1,23 @@
+# Heiwa
+
+Heiwa is an iOS soundscape app for creating personal mixes for sleep, focus, reading, and relaxation.
+
+## Primary pages
+- https://www.heiwa.fun/
+- https://www.heiwa.fun/sleep-sounds
+- https://www.heiwa.fun/soundscape-app
+- https://www.heiwa.fun/rain-sounds-for-sleep
+- https://www.heiwa.fun/offline-sleep-sounds-app
+- https://www.heiwa.fun/sleep-sounds-app-with-timer
+- https://www.heiwa.fun/brown-noise-and-rain-for-sleep
+
+## Guides
+- https://www.heiwa.fun/blogs
+- https://www.heiwa.fun/blogs/best-sleep-sounds-for-falling-asleep-faster
+- https://www.heiwa.fun/blogs/how-to-create-your-own-sleep-sound-mix
+- https://www.heiwa.fun/blogs/white-noise-vs-brown-noise-vs-pink-noise
+
+## Support and policies
+- https://www.heiwa.fun/contact
+- https://www.heiwa.fun/privacy-policy
+- https://www.heiwa.fun/terms

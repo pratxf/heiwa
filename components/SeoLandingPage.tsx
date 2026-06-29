@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Check, Moon, SlidersHorizontal, Timer, Waves } from "lucide-react";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 import { APP_STORE_URL } from "@/lib/app-store";
+import { breadcrumbsJsonLd, JsonLd, SITE_URL } from "@/lib/seo";
 
 export default function SeoLandingPage({
   eyebrow,
@@ -11,6 +12,8 @@ export default function SeoLandingPage({
   image,
   imageAlt,
   sections,
+  path,
+  related = [],
 }: {
   eyebrow: string;
   title: string;
@@ -18,6 +21,8 @@ export default function SeoLandingPage({
   image: string;
   imageAlt: string;
   sections: { title: string; paragraphs: string[] }[];
+  path: string;
+  related?: { title: string; href: string }[];
 }) {
   const benefits = [
     ["Mix every layer", "Adjust rain, fire, wind, ocean, music, and noise separately.", SlidersHorizontal],
@@ -27,6 +32,24 @@ export default function SeoLandingPage({
 
   return (
     <main className="bg-[#f8f3e8] text-[#10231c]">
+      <JsonLd
+        data={[
+          {
+            "@type": "WebPage",
+            "@id": `${SITE_URL}${path}/#webpage`,
+            url: `${SITE_URL}${path}`,
+            name: title,
+            description: intro,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#softwareapplication` },
+            inLanguage: "en-US",
+          },
+          breadcrumbsJsonLd([
+            { name: "Home", path: "/" },
+            { name: title, path },
+          ]),
+        ]}
+      />
       <SiteHeader />
 
       <header className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 sm:pt-20 lg:grid-cols-2 lg:pb-28">
@@ -75,6 +98,19 @@ export default function SeoLandingPage({
             ))}
           </ul>
         </aside>
+
+        {related.length > 0 && (
+          <nav aria-label="Related guides" className="mt-10 border-t border-[#10231c]/10 pt-10">
+            <h2 className="text-2xl font-medium">Continue exploring</h2>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {related.map((item) => (
+                <Link key={item.href} href={item.href} className="rounded-2xl bg-white p-5 font-semibold transition hover:text-[#168f70]">
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        )}
       </article>
 
       <SiteFooter />

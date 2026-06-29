@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
 import { APP_STORE_ID } from "@/lib/app-store";
+import { JsonLd, organizationJsonLd, SITE_URL, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -11,7 +12,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://heiwa.fun"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Heiwa Sleep Sounds App | Create Personal Soundscapes",
     template: "%s | Heiwa",
@@ -31,24 +32,24 @@ export const metadata: Metadata = {
     "sound mixer app",
     "sleep timer app",
   ],
-  authors: [{ name: "Heiwa", url: "https://heiwa.fun" }],
+  authors: [{ name: "Heiwa", url: SITE_URL }],
   creator: "Heiwa",
   publisher: "Heiwa",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://heiwa.fun",
+    url: SITE_URL,
     siteName: "Heiwa",
     title: "Heiwa Sleep Sounds App | Create Personal Soundscapes",
     description: "Build personal soundscapes with rain, fire, wind, forest, ocean, and more.",
-    images: [{ url: "/images/curated-forest.png", width: 1536, height: 1024, alt: "A calm sunlit forest representing Heiwa soundscapes" }],
+    images: [{ url: "/images/curated-forest.webp", width: 1536, height: 1024, alt: "A calm sunlit forest representing Heiwa soundscapes" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Heiwa Sleep Sounds App",
     description: "Create personal soundscapes for sleep, focus, and relaxation.",
-    images: ["/images/curated-forest.png"],
+    images: ["/images/curated-forest.webp"],
   },
   icons: {
     icon: "/screenshots/app-icon.png",
@@ -66,7 +67,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
+        {children}
+      </body>
     </html>
   );
 }

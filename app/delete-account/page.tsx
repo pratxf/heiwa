@@ -4,6 +4,7 @@ import LegalPage from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Delete Account",
   description: "Request deletion of your Heiwa account and associated data.",
+  alternates: { canonical: "/delete-account" },
 };
 
 export default function DeleteAccountPage() {

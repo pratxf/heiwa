@@ -1,18 +1,22 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://heiwa.fun";
-  const now = new Date();
-
   return [
-    { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${baseUrl}/blogs`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
-    { url: `${baseUrl}/sleep-sounds`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/soundscape-app`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/rain-sounds-for-sleep`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
-    { url: `${baseUrl}/delete-account`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+    { url: SITE_URL, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/blogs`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/sleep-sounds`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/soundscape-app`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/rain-sounds-for-sleep`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/offline-sleep-sounds-app`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/sleep-sounds-app-with-timer`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/brown-noise-and-rain-for-sleep`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/blogs/best-sleep-sounds-for-falling-asleep-faster`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/blogs/how-to-create-your-own-sleep-sound-mix`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/blogs/white-noise-vs-brown-noise-vs-pink-noise`, lastModified: "2026-06-30" },
+    { url: `${SITE_URL}/privacy-policy`, lastModified: "2026-06-18" },
+    { url: `${SITE_URL}/terms`, lastModified: "2026-06-18" },
+    { url: `${SITE_URL}/contact`, lastModified: "2026-06-18" },
+    { url: `${SITE_URL}/delete-account`, lastModified: "2026-06-18" },
   ];
 }

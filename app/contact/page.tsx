@@ -4,6 +4,7 @@ import LegalPage from "@/components/LegalPage";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact Heiwa support.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

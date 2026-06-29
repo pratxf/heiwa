@@ -340,9 +340,9 @@ function LegacyFeaturesSection() {
   ];
 
   const smallFeatures = [
-    { icon: "alarm", title: "A timer that lets go", copy: "Ease into focus or sleep. Your sounds gently fade when time is up.", image: "/images/timer-landscape.png" },
-    { icon: "dark_mode", title: "Made to disappear", copy: "Simple controls, no clutter. Find your space and return to what matters.", image: "/images/disappear-landscape.png" },
-    { icon: "favorite", title: "Save the places you love", copy: "Your favorite combinations stay close, ready whenever the day gets loud.", image: "/images/saved-botanical.png" },
+    { icon: "alarm", title: "A timer that lets go", copy: "Ease into focus or sleep. Your sounds gently fade when time is up.", image: "/images/timer-landscape.webp" },
+    { icon: "dark_mode", title: "Made to disappear", copy: "Simple controls, no clutter. Find your space and return to what matters.", image: "/images/disappear-landscape.webp" },
+    { icon: "favorite", title: "Save the places you love", copy: "Your favorite combinations stay close, ready whenever the day gets loud.", image: "/images/saved-botanical.webp" },
   ];
 
   return (
@@ -702,7 +702,7 @@ function FeaturesSection() {
             <h3 className="mt-5 text-[26px] font-extrabold leading-[1.15]">Curated<br />for you</h3>
             <p className="mt-4 max-w-xs text-[17px] leading-[1.45] text-[#6f7c75] sm:text-lg">Handpicked soundscapes designed to help you relax, focus, and unwind.</p>
             <div className="relative mt-8 h-64 overflow-hidden rounded-[1.4rem] bg-[#b7d2ad] sm:h-72 lg:absolute lg:inset-x-5 lg:bottom-5 lg:mt-0 lg:h-[45%] lg:rounded-[1.6rem]">
-              <Image src="/images/curated-forest.png" alt="Sunlit forest soundscape" fill sizes="(min-width: 1024px) 30vw, 90vw" className="object-cover object-center" />
+              <Image src="/images/curated-forest.webp" alt="Sunlit forest soundscape" fill sizes="(min-width: 1024px) 30vw, 90vw" className="object-cover object-center" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
               <span className="absolute bottom-5 left-5 flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-ink shadow-lg"><MaterialIcon name="play_arrow" /> Listen</span>
             </div>
@@ -764,7 +764,7 @@ function FeaturesSection() {
           </motion.article>
 
           <motion.article variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } }} transition={{ duration: 0.6 }} whileHover={{ y: -4 }} className="relative overflow-hidden rounded-[1.5rem] bg-[#e7f4f8] p-5 sm:rounded-[2rem] sm:p-8 lg:col-span-12 lg:min-h-[360px]">
-            <Image src="/images/layer-control-landscape.png" alt="" fill sizes="100vw" className="object-cover object-center" />
+            <Image src="/images/layer-control-landscape.webp" alt="" fill sizes="100vw" className="object-cover object-center" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#f8fbf9]/95 via-[#f8fbf9]/72 to-white/5" />
             <div className="relative z-10">
               <span className="grid h-[60px] w-[60px] place-items-center rounded-full bg-white/85 text-2xl text-[#237c68] shadow-[0_8px_24px_rgba(20,30,40,.05)]"><MaterialIcon name="graphic_eq" /></span>
@@ -878,7 +878,7 @@ export default function LandingPage() {
                 className="relative overflow-hidden rounded-[2rem] bg-[#ffd94d] lg:min-h-[680px]"
               >
                 <Image
-                  src="/images/hero-phone-scene.png"
+                  src="/images/hero-phone-scene.webp"
                   alt="Heiwa app shown on a phone"
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"

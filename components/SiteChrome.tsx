@@ -36,6 +36,8 @@ export function SiteHeader() {
       <SiteLogo />
       <div className="hidden items-center gap-10 text-[15px] font-medium text-black lg:flex">
         <Link className="transition hover:opacity-65" href="/#features">Features</Link>
+        <Link className="transition hover:opacity-65" href="/sleep-sounds">Sleep Sounds</Link>
+        <Link className="transition hover:opacity-65" href="/soundscape-app">Soundscape App</Link>
         <Link className="transition hover:opacity-65" href="/blogs">Blogs</Link>
       </div>
       <Link
@@ -54,6 +56,8 @@ export function SiteHeader() {
         <div className="absolute left-5 right-5 top-20 rounded-3xl bg-[#10231c] p-6 text-white shadow-2xl lg:hidden">
           <div className="flex flex-col gap-5 font-semibold">
             <Link onClick={() => setOpen(false)} href="/#features">Features</Link>
+            <Link onClick={() => setOpen(false)} href="/sleep-sounds">Sleep Sounds</Link>
+            <Link onClick={() => setOpen(false)} href="/soundscape-app">Soundscape App</Link>
             <Link onClick={() => setOpen(false)} href="/blogs">Blogs</Link>
             <Link onClick={() => setOpen(false)} href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-5 py-3 text-center text-[#10231c]">Get on App Store</Link>
           </div>
@@ -79,9 +83,9 @@ function AppStoreBadge() {
 
 export function SiteFooter() {
   const groups = [
-    { title: "Product", items: [["Features", "/#features"], ["Download for iOS", APP_STORE_URL]] },
-    { title: "Support", items: [["Contact", "/contact"], ["FAQ", "/#faq"], ["Delete Account", "/delete-account"]] },
-    { title: "Legal", items: [["Privacy Policy", "/privacy-policy"], ["Terms of Use", "/terms"]] },
+    { title: "Product", items: [["Sleep Sounds", "/sleep-sounds"], ["Soundscape App", "/soundscape-app"], ["Offline Listening", "/offline-sleep-sounds-app"], ["Sleep Timer", "/sleep-sounds-app-with-timer"], ["Download for iOS", APP_STORE_URL]] },
+    { title: "Guides", items: [["Best Sleep Sounds", "/blogs/best-sleep-sounds-for-falling-asleep-faster"], ["Mix Sleep Sounds", "/blogs/how-to-create-your-own-sleep-sound-mix"], ["Noise Colors", "/blogs/white-noise-vs-brown-noise-vs-pink-noise"], ["All Guides", "/blogs"]] },
+    { title: "Support", items: [["Contact", "/contact"], ["FAQ", "/#faq"], ["Delete Account", "/delete-account"], ["Privacy Policy", "/privacy-policy"], ["Terms of Use", "/terms"]] },
   ];
 
   return (

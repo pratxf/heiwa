@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SeoLandingPage from "@/components/SeoLandingPage";
 
 export const metadata: Metadata = {
-  title: "Rain Sounds for Sleep, Focus, and Relaxation",
+  title: "Rain Sleep Sounds for Bedtime and Quiet Focus",
   description: "Create personal rain sound mixes for sleep and focus. Combine soft rain with wind, fire, forest, ocean, music, white noise, or brown noise in Heiwa.",
   alternates: { canonical: "/rain-sounds-for-sleep" },
   openGraph: {
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 export default function RainSoundsPage() {
   return (
     <SeoLandingPage
+      path="/rain-sounds-for-sleep"
       eyebrow="Rain sounds for sleep"
       title="Make rain sound exactly how you like it"
       intro="Start with gentle rain, then add a warm fireplace, forest ambience, distant wind, ocean waves, music, or calming noise to create a familiar sleep or focus mix."
@@ -42,6 +43,11 @@ export default function RainSoundsPage() {
             "Heiwa does not claim to treat sleep conditions. It is designed as a calming ambient sound tool for personal routines.",
           ],
         },
+      ]}
+      related={[
+        { title: "Brown noise and rain sounds for sleep", href: "/brown-noise-and-rain-for-sleep" },
+        { title: "Best sleep sounds for falling asleep faster", href: "/blogs/best-sleep-sounds-for-falling-asleep-faster" },
+        { title: "Sleep sounds app with a timer", href: "/sleep-sounds-app-with-timer" },
       ]}
     />
   );

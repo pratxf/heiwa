@@ -6,11 +6,35 @@ import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 
 const posts = [
   {
+    title: "Best sleep sounds for falling asleep faster",
+    description: "Explore cozy rain, crackling fire, deep ocean, lo-fi, and other soothing sleep sounds for a calmer bedtime routine.",
+    href: "/blogs/best-sleep-sounds-for-falling-asleep-faster",
+    image: "/images/curated-forest.webp",
+    alt: "Calm forest representing the best sleep sounds",
+    category: "Featured guide",
+  },
+  {
+    title: "How to create your own sleep sound mix",
+    description: "Choose a base, layer natural texture, balance each volume, and save a personal sleep soundscape.",
+    href: "/blogs/how-to-create-your-own-sleep-sound-mix",
+    image: "/images/layer-control-landscape.webp",
+    alt: "Controls for layering a personal sleep sound mix",
+    category: "Sound mixing",
+  },
+  {
+    title: "White noise vs brown noise vs pink noise",
+    description: "Compare the character of three noise colors and find the texture that feels comfortable for sleep or focus.",
+    href: "/blogs/white-noise-vs-brown-noise-vs-pink-noise",
+    image: "/images/disappear-landscape.webp",
+    alt: "Abstract soundscape representing white, pink, and brown noise",
+    category: "Noise guide",
+  },
+  {
     title: "Sleep sounds made for your bedtime",
     description:
       "Build a calming mix with rain, fire, ocean, forest, wind, white noise, and brown noise for a softer bedtime routine.",
     href: "/sleep-sounds",
-    image: "/images/curated-forest.png",
+    image: "/images/curated-forest.webp",
     alt: "Forest path representing sleep sounds",
     category: "Sleep",
   },
@@ -19,7 +43,7 @@ const posts = [
     description:
       "Learn how layered ambience, saved mixes, and a gentle timer can turn quiet listening into a daily ritual.",
     href: "/soundscape-app",
-    image: "/images/layer-control-landscape.png",
+    image: "/images/layer-control-landscape.webp",
     alt: "A layered soundscape control scene",
     category: "Soundscape",
   },
@@ -28,7 +52,7 @@ const posts = [
     description:
       "See how rain textures pair with forest air, ocean wash, and soft noise to create a room that feels calmer.",
     href: "/rain-sounds-for-sleep",
-    image: "/images/timer-landscape.png",
+    image: "/images/timer-landscape.webp",
     alt: "Rain-inspired image for calm listening",
     category: "Rain Sounds",
   },
@@ -59,7 +83,7 @@ export default function BlogsPage() {
         </p>
       </header>
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-5 pb-20 sm:px-8 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-7xl gap-6 px-5 pb-20 sm:px-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <article
             key={post.href}
