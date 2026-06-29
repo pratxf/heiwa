@@ -822,11 +822,10 @@ export default function LandingPage() {
 
   return (
       <main>
+        <SiteHeader />
         <section className="bg-[#f6f3ee] px-4 pb-8 pt-5 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[1180px]">
-            <SiteHeader />
-
-            <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_1fr]">
+            <div className="grid gap-4 lg:grid-cols-[1fr_1fr]">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}

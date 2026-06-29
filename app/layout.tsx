@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+import Script from "next/script";
 import { APP_STORE_ID } from "@/lib/app-store";
 import { JsonLd, organizationJsonLd, SITE_URL, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -70,6 +71,13 @@ export default function RootLayout({
       <body>
         <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
         {children}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Z8GC23YG8M" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Z8GC23YG8M');`}
+        </Script>
       </body>
     </html>
   );
