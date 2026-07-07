@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const updated = new Date("2026-07-07");
-  const older = new Date("2026-06-18");
+  const updated = "2026-07-07";
+  const older = "2026-06-18";
 
   return [
     { url: `${SITE_URL}/`, lastModified: updated, changeFrequency: "weekly", priority: 1 },
