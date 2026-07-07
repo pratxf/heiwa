@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.seo-cache/
 out/
 .env
 .env.*
@@ -11,4 +12,3 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 *.tsbuildinfo
-

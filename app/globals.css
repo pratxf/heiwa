@@ -1,5 +1,3 @@
-@import url("https://api.fontshare.com/v2/css?f[]=plein@700&f[]=switzer@400&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,7 +21,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--cream);
-  font-family: "Switzer", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body), ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   overflow-x: hidden;
 }
 
@@ -36,7 +34,7 @@ h1,
 h2,
 h3,
 .display {
-  font-family: "Plein", "Switzer", ui-sans-serif, sans-serif;
+  font-family: var(--font-display), var(--font-body), ui-sans-serif, sans-serif;
   font-weight: 700 !important;
   color: var(--ink);
   letter-spacing: -0.01em !important;

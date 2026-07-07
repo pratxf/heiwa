@@ -23,7 +23,7 @@ export default function BlogArticle({ slug, title, description, authors, publish
         <p className="mt-6 text-sm text-[#6f7c75]">By {authors.join(" and ")} · Published {published} · Updated {modified} · {readingTime}</p>
       </header>
       <div className="relative mx-auto h-[360px] max-w-6xl overflow-hidden rounded-[2rem] sm:h-[520px]">
-        <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 1200px) 1152px, 100vw" className="object-cover" />
+        <Image src={image} alt={imageAlt} fill preload fetchPriority="high" sizes="(min-width: 1200px) 1152px, 100vw" className="object-cover" />
       </div>
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1fr_240px]">
         <nav aria-label="Table of contents" className="h-fit rounded-2xl bg-white p-5 lg:order-2 lg:sticky lg:top-24">

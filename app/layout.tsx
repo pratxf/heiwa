@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { APP_STORE_ID } from "@/lib/app-store";
 import { JsonLd, organizationJsonLd, SITE_URL, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
+
+const switzer = localFont({
+  src: "../public/fonts/neue-haas/neuehaasgrotdisp-55roman-trial.otf",
+  variable: "--font-body",
+  display: "swap",
+});
+
+const plein = localFont({
+  src: "../public/fonts/neue-haas/neuehaasgrotdisp-75bold-trial.otf",
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: "#f8f3e8",
@@ -68,11 +81,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${switzer.variable} ${plein.variable}`}>
         <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
         {children}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Z8GC23YG8M" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-Z8GC23YG8M" strategy="lazyOnload" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());

@@ -78,7 +78,7 @@ function AppStoreBadge() {
         <path d="M17.05 12.54c-.03-3.18 2.6-4.71 2.72-4.78a5.84 5.84 0 0 0-4.6-2.49c-1.94-.2-3.82 1.16-4.81 1.16-1.02 0-2.55-1.14-4.21-1.11a6.1 6.1 0 0 0-5.13 3.13c-2.23 3.86-.57 9.54 1.57 12.66 1.07 1.53 2.32 3.23 3.98 3.17 1.62-.07 2.23-1.02 4.19-1.02 1.94 0 2.51 1.02 4.2.98 1.74-.03 2.84-1.54 3.87-3.08a12.64 12.64 0 0 0 1.77-3.6 5.53 5.53 0 0 1-3.55-5.02ZM13.9 3.22A5.62 5.62 0 0 0 15.18-.82a5.72 5.72 0 0 0-3.7 1.92 5.37 5.37 0 0 0-1.31 3.9 4.73 4.73 0 0 0 3.73-1.78Z" transform="translate(1.1 1.2) scale(.91)" />
       </svg>
       <span className="leading-none">
-        <span className="block text-[10px] font-medium uppercase tracking-[0.08em] text-black/45">Get on</span>
+        <span className="block text-[10px] font-medium uppercase tracking-[0.08em] text-black/70">Get on</span>
         <span className="mt-1 block text-[18px] font-semibold tracking-[-0.03em]">App Store</span>
       </span>
     </Link>
@@ -101,13 +101,13 @@ export function SiteFooter() {
           <div className="absolute bottom-[-8rem] right-[-2rem] h-80 w-80 rounded-full bg-[#65d3ad]/30 blur-3xl" />
           <div className="absolute inset-y-0 left-0 w-full bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.09),transparent_28%),radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.08),transparent_24%)]" />
           <div className="relative z-10 max-w-[620px]">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/58">Heiwa for everyday calm</p>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/80">Heiwa for everyday calm</p>
             <h2 className="mt-4 text-[clamp(2.2rem,8vw,3.6rem)] font-semibold leading-[0.9] text-white">
               <span className="block sm:whitespace-nowrap">Make a little room</span>
               <span className="block sm:whitespace-nowrap">for yourself.</span>
             </h2>
-            <p className="mt-5 max-w-[420px] text-base leading-[1.5] text-white/78 sm:text-[20px]">Create a soundscape for focus, sleep, or a quiet moment between everything else.</p>
-            <div className="mt-8 flex flex-wrap items-center gap-4"><AppStoreBadge /><span className="text-sm font-medium text-white/70">★★★★★ 4.9 rating · 20k+ Heiwa users</span></div>
+            <p className="mt-5 max-w-[420px] text-base leading-[1.5] text-white/90 sm:text-[20px]">Create a soundscape for focus, sleep, or a quiet moment between everything else.</p>
+            <div className="mt-8 flex flex-wrap items-center gap-4"><AppStoreBadge /><span className="text-sm font-medium text-white/85">★★★★★ 4.9 rating · 20k+ Heiwa users</span></div>
           </div>
           <div className="absolute -bottom-[7.5rem] right-[8%] hidden aspect-[918/2048] w-[clamp(180px,16vw,230px)] rotate-[6deg] overflow-hidden rounded-[1.7rem] border-[5px] border-[#0b4c3d] bg-[#f8f3e8] shadow-[0_18px_44px_rgba(4,39,30,.22)] md:block">
             <Image src="/screenshots/05-create-mix.png" alt="Heiwa create mix screen" fill sizes="280px" className="object-cover object-top" />
@@ -121,8 +121,8 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-5 py-12 sm:px-10 sm:py-16 md:grid-cols-2 lg:grid-cols-[1.45fr_1fr_1fr_1fr] lg:gap-12 lg:px-16">
         <div className="col-span-2 lg:col-span-1">
           <SiteLogo large />
-          <p className="mt-5 max-w-xs text-sm leading-relaxed text-[#10231c]/45">Beautiful soundscapes for focus, rest, sleep, and the space in between.</p>
-          <p className="mt-8 text-xs text-[#10231c]/35">© 2026 Heiwa. All rights reserved.</p>
+          <p className="mt-5 max-w-xs text-sm leading-relaxed text-[#10231c]/70">Beautiful soundscapes for focus, rest, sleep, and the space in between.</p>
+          <p className="mt-8 text-xs text-[#10231c]/60">© 2026 Heiwa. All rights reserved.</p>
         </div>
         {groups.map(({ title, items }) => (
           <div key={title}>

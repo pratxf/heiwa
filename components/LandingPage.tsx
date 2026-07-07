@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import {
   AlarmClock,
   AirVent,
@@ -38,6 +37,31 @@ import {
 import { Arrow, Check, Pause, Play, Plus, Star } from "./Icons";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 import { APP_STORE_URL } from "@/lib/app-store";
+
+type MotionProps = Record<string, unknown> & {
+  children?: React.ReactNode;
+  className?: string;
+};
+
+function motionTag(Tag: "a" | "article" | "div") {
+  return function MotionTag({
+    initial,
+    animate,
+    whileHover,
+    whileTap,
+    transition,
+    variants,
+    ...props
+  }: MotionProps) {
+    return <Tag {...props} />;
+  };
+}
+
+const motion = {
+  a: motionTag("a"),
+  article: motionTag("article"),
+  div: motionTag("div"),
+};
 
 function AppleMark({ className = "" }: { className?: string }) {
   return (
@@ -266,7 +290,7 @@ function HeroMixer() {
         <div className="rounded-[1.7rem] bg-ink p-5 text-white sm:p-7">
           <div className="flex items-start justify-between">
             <div>
-              <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-white/50">Now playing</p>
+              <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-white/80">Now playing</p>
               <h3 className="text-2xl font-extrabold">Forest reset</h3>
             </div>
             <div className="rounded-full bg-white/10 px-3 py-2 text-xs font-bold">{minutes}:{secs}</div>
@@ -290,7 +314,7 @@ function HeroMixer() {
                   <div className="min-w-0 flex-1">
                     <div className="mb-2 flex justify-between text-sm font-bold">
                       <span>{layer.name}</span>
-                      <span className="text-white/50">{volumes[index]}%</span>
+                      <span className="text-white/80">{volumes[index]}%</span>
                     </div>
                     <input
                       type="range"
@@ -501,9 +525,9 @@ function LegacyBentoFeaturesSection() {
     <section id="features" className="bg-[#f2f3f0] px-5 py-24 lg:px-8 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="inline-flex rounded-full border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-ink/55 shadow-sm">Features</span>
+          <span className="inline-flex rounded-full border border-black/5 bg-white px-4 py-2 text-xs font-semibold text-ink/70 shadow-sm">Features</span>
           <h2 className="mt-5 text-4xl font-medium leading-tight sm:text-6xl">Everything you need to tune the room.</h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg text-ink/50">Thoughtful controls when you want them. Nothing in the way when you don’t.</p>
+          <p className="mx-auto mt-5 max-w-xl text-lg text-ink/70">Thoughtful controls when you want them. Nothing in the way when you don’t.</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
@@ -511,7 +535,7 @@ function LegacyBentoFeaturesSection() {
             <div className="relative z-10 max-w-sm">
               <span className="mb-5 grid h-11 w-11 place-items-center rounded-full bg-white/70 text-[#0e6b53]"><MaterialIcon name="tune" /></span>
               <h3 className="text-3xl font-medium">Build a soundscape that feels like yours.</h3>
-              <p className="mt-3 leading-relaxed text-ink/55">Layer rain, fire, music, and noise. Adjust each sound independently until the room settles.</p>
+              <p className="mt-3 leading-relaxed text-ink/70">Layer rain, fire, music, and noise. Adjust each sound independently until the room settles.</p>
             </div>
             <div className="absolute bottom-7 right-7 grid w-[48%] grid-cols-2 gap-3 max-md:right-[-2rem] max-md:w-[60%]">
               {[
@@ -522,12 +546,12 @@ function LegacyBentoFeaturesSection() {
               ].map(([name, icon, color]) => (
                 <div key={name} className={`relative aspect-square overflow-hidden rounded-[1.6rem] bg-gradient-to-br p-4 text-white shadow-lg ${color}`}>
                   <p className="max-w-[8rem] text-sm font-semibold leading-tight">{name}</p>
-                  <MaterialIcon name={icon} className="absolute bottom-3 right-3 text-4xl text-white/70" />
+                  <MaterialIcon name={icon} className="absolute bottom-3 right-3 text-4xl text-white/85" />
                 </div>
               ))}
             </div>
             <div className="absolute bottom-8 left-8 rounded-2xl bg-white/85 p-4 shadow-lg backdrop-blur">
-              <div className="flex items-center gap-3 text-sm font-semibold"><MaterialIcon name="rainy" className="text-[#0e8062]" /> Forest rain <span className="text-ink/35">72%</span></div>
+              <div className="flex items-center gap-3 text-sm font-semibold"><MaterialIcon name="rainy" className="text-[#0e8062]" /> Forest rain <span className="text-ink/65">72%</span></div>
               <div className="mt-3 h-1.5 w-44 overflow-hidden rounded-full bg-black/10"><span className="block h-full w-[72%] rounded-full bg-[#18ad82]" /></div>
             </div>
           </article>
@@ -535,17 +559,17 @@ function LegacyBentoFeaturesSection() {
           <article className="relative min-h-[500px] overflow-hidden rounded-[2rem] bg-[#ffd77a] p-8 lg:col-span-5">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-white/65 text-[#5a4610]"><MaterialIcon name="timer" /></span>
             <h3 className="mt-5 max-w-xs text-3xl font-medium">Set the time. Let everything else go.</h3>
-            <p className="mt-3 max-w-sm leading-relaxed text-ink/55">Choose a session length and Heiwa gently fades away when time is up.</p>
+            <p className="mt-3 max-w-sm leading-relaxed text-ink/70">Choose a session length and Heiwa gently fades away when time is up.</p>
             <div className="absolute inset-x-8 bottom-8 rounded-[2rem] bg-[#fffaf0] p-6 shadow-2xl">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[.14em] text-ink/35">Mindful timer</p>
+                  <p className="text-xs font-semibold uppercase tracking-[.14em] text-ink/65">Mindful timer</p>
                   <p className="mt-2 text-5xl font-medium tracking-[-.05em]">29:59</p>
                 </div>
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-ink text-2xl text-white"><MaterialIcon name="pause" /></span>
               </div>
               <div className="mt-8 flex gap-2">
-                {["15m", "30m", "45m", "1h"].map((time) => <span key={time} className={`flex-1 rounded-full py-2 text-center text-xs font-semibold ${time === "30m" ? "bg-mint text-ink" : "bg-[#edf1eb] text-ink/50"}`}>{time}</span>)}
+                {["15m", "30m", "45m", "1h"].map((time) => <span key={time} className={`flex-1 rounded-full py-2 text-center text-xs font-semibold ${time === "30m" ? "bg-mint text-ink" : "bg-[#edf1eb] text-ink/70"}`}>{time}</span>)}
               </div>
             </div>
           </article>
@@ -553,7 +577,7 @@ function LegacyBentoFeaturesSection() {
           <article className="relative min-h-[360px] overflow-hidden rounded-[2rem] bg-[#bab4ef] p-8 lg:col-span-4">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-white/60 text-[#3f377c]"><MaterialIcon name="bookmark" /></span>
             <h3 className="mt-5 text-2xl font-medium">Keep your favorite spaces close.</h3>
-            <p className="mt-3 leading-relaxed text-ink/55">Save the combinations you return to, ready in one tap.</p>
+            <p className="mt-3 leading-relaxed text-ink/70">Save the combinations you return to, ready in one tap.</p>
             <div className="absolute bottom-7 left-7 right-7 space-y-2">
               {[
                 ["Rainy reading", "rainy", "from-[#2782a3] to-[#bcd3c3]"],
@@ -563,7 +587,7 @@ function LegacyBentoFeaturesSection() {
                 <div key={name} className="flex items-center gap-3 rounded-2xl bg-white/85 p-3 shadow-sm backdrop-blur">
                   <span className={`grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br text-white ${color}`}><MaterialIcon name={icon} /></span>
                   <span className="flex-1 text-sm font-semibold">{name}</span>
-                  <MaterialIcon name="chevron_right" className="text-ink/35" />
+                  <MaterialIcon name="chevron_right" className="text-ink/65" />
                 </div>
               ))}
             </div>
@@ -572,10 +596,10 @@ function LegacyBentoFeaturesSection() {
           <article className="relative min-h-[360px] overflow-hidden rounded-[2rem] bg-[#ffad86] p-8 lg:col-span-5">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-white/60 text-[#843819]"><MaterialIcon name="graphic_eq" /></span>
             <h3 className="mt-5 max-w-sm text-2xl font-medium">Fine-tune without breaking the mood.</h3>
-            <p className="mt-3 max-w-sm leading-relaxed text-ink/55">A compact player keeps volume, layers, and time within reach.</p>
+            <p className="mt-3 max-w-sm leading-relaxed text-ink/70">A compact player keeps volume, layers, and time within reach.</p>
             <div className="absolute bottom-7 left-7 right-7 rounded-[1.7rem] bg-[#112019] p-5 text-white shadow-2xl">
               <div className="flex items-center justify-between">
-                <div><p className="text-xs text-white/45">NOW PLAYING</p><p className="mt-1 font-semibold">Forest reset</p></div>
+                <div><p className="text-xs text-white/75">NOW PLAYING</p><p className="mt-1 font-semibold">Forest reset</p></div>
                 <span className="grid h-11 w-11 place-items-center rounded-full bg-mint text-ink"><MaterialIcon name="pause" /></span>
               </div>
               <div className="mt-5 flex h-8 items-center gap-1">
@@ -587,7 +611,7 @@ function LegacyBentoFeaturesSection() {
           <article className="relative min-h-[360px] overflow-hidden rounded-[2rem] bg-[#c8dfef] p-8 lg:col-span-3">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-white/65 text-[#285b79]"><MaterialIcon name="cloud_download" /></span>
             <h3 className="mt-5 text-2xl font-medium">Calm, even offline.</h3>
-            <p className="mt-3 leading-relaxed text-ink/55">Download spaces for flights, trains, and anywhere signal disappears.</p>
+            <p className="mt-3 leading-relaxed text-ink/70">Download spaces for flights, trains, and anywhere signal disappears.</p>
             <div className="absolute bottom-8 left-1/2 grid h-32 w-32 -translate-x-1/2 place-items-center rounded-full border border-white/70 bg-white/35 text-5xl text-[#285b79] backdrop-blur"><MaterialIcon name="offline_pin" /></div>
           </article>
         </div>
@@ -609,7 +633,7 @@ function LegacyMoodSoundsSection() {
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-medium text-mint">The sound library</p>
           <h2 className="mt-4 text-5xl font-medium leading-tight sm:text-7xl">A sound for wherever you are.</h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/50">Natural recordings, soft textures, and gentle tones arranged around the way you want to feel.</p>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/80">Natural recordings, soft textures, and gentle tones arranged around the way you want to feel.</p>
         </div>
 
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
@@ -624,7 +648,7 @@ function LegacyMoodSoundsSection() {
                   <div className="grid h-40 w-40 place-items-center rounded-full border border-white/25 bg-white/10 text-7xl shadow-[0_20px_80px_rgba(0,0,0,.16)] backdrop-blur-sm"><MaterialIcon name={mood.icon} /></div>
                 </div>
                 <h3 className="text-3xl font-medium">{mood.title}</h3>
-                <p className="mt-3 max-w-sm leading-relaxed text-white/70">{mood.copy}</p>
+                <p className="mt-3 max-w-sm leading-relaxed text-white/85">{mood.copy}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {mood.tags.map((tag) => <span key={tag} className="rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs backdrop-blur">{tag}</span>)}
                 </div>
@@ -634,7 +658,7 @@ function LegacyMoodSoundsSection() {
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-7 border-t border-white/10 pt-10">
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/45">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-white/75">
             {["Rain", "Fire", "Ocean", "Forest", "Noise", "Piano", "Birds", "Rooms"].map((sound) => <span key={sound}>{sound}</span>)}
           </div>
           <Button dark={false}>Browse the full library</Button>
@@ -702,7 +726,7 @@ function FeaturesSection() {
             <h3 className="mt-5 text-[26px] font-extrabold leading-[1.15]">Curated<br />for you</h3>
             <p className="mt-4 max-w-xs text-[17px] leading-[1.45] text-[#6f7c75] sm:text-lg">Handpicked soundscapes designed to help you relax, focus, and unwind.</p>
             <div className="relative mt-8 h-64 overflow-hidden rounded-[1.4rem] bg-[#b7d2ad] sm:h-72 lg:absolute lg:inset-x-5 lg:bottom-5 lg:mt-0 lg:h-[45%] lg:rounded-[1.6rem]">
-              <Image src="/images/curated-forest.webp" alt="Sunlit forest soundscape" fill sizes="(min-width: 1024px) 30vw, 90vw" className="object-cover object-center" />
+              <Image src="/images/curated-forest.webp" alt="Sunlit forest soundscape" fill sizes="(min-width: 1024px) 360px, 90vw" className="object-cover object-center" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
               <span className="absolute bottom-5 left-5 flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-semibold text-ink shadow-lg"><MaterialIcon name="play_arrow" /> Listen</span>
             </div>
@@ -764,7 +788,7 @@ function FeaturesSection() {
           </motion.article>
 
           <motion.article variants={{ hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0 } }} transition={{ duration: 0.6 }} whileHover={{ y: -4 }} className="relative overflow-hidden rounded-[1.5rem] bg-[#e7f4f8] p-5 sm:rounded-[2rem] sm:p-8 lg:col-span-12 lg:min-h-[360px]">
-            <Image src="/images/layer-control-landscape.webp" alt="" fill sizes="100vw" className="object-cover object-center" />
+            <Image src="/images/layer-control-landscape.webp" alt="" fill sizes="(min-width: 1280px) 1152px, 100vw" className="object-cover object-center" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#f8fbf9]/95 via-[#f8fbf9]/72 to-white/5" />
             <div className="relative z-10">
               <span className="grid h-[60px] w-[60px] place-items-center rounded-full bg-white/85 text-2xl text-[#237c68] shadow-[0_8px_24px_rgba(20,30,40,.05)]"><MaterialIcon name="graphic_eq" /></span>
@@ -796,7 +820,7 @@ function FeaturesSection() {
           ].map(([icon,title,copy]) => (
             <div key={title} className="flex gap-4">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#e8f3e9] text-[#579663]"><MaterialIcon name={icon} /></span>
-              <div><p className="font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-ink/45">{copy}</p></div>
+              <div><p className="font-semibold">{title}</p><p className="mt-1 text-sm leading-relaxed text-ink/70">{copy}</p></div>
             </div>
           ))}
         </div>
@@ -834,7 +858,7 @@ export default function LandingPage() {
               >
                 <div className="relative z-10 max-w-[440px] pt-4 sm:pt-10">
                   <div className="mb-7 flex flex-wrap items-center gap-3 text-[15px] font-medium tracking-[-0.01em] text-[#6f6a63]">
-                    <div className="flex items-center gap-1 text-[#f3a63a]" aria-label="5 star rating">
+                    <div className="flex items-center gap-1 text-[#f3a63a]" role="img" aria-label="5 star rating">
                       {Array.from({ length: 5 }, (_, index) => (
                         <svg key={index} viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4 fill-current">
                           <path d="M10 1.8 12.47 6.8l5.52.8-4 3.9.95 5.5L10 14.4 5.06 17l.95-5.5-4-3.9 5.52-.8Z" />
@@ -852,7 +876,7 @@ export default function LandingPage() {
                     <br />
                     <span className="whitespace-nowrap">sleep deeper</span>
                   </h1>
-                  <p className="mt-8 max-w-[420px] text-lg leading-[1.65] text-black/55">
+                  <p className="mt-8 max-w-[420px] text-lg leading-[1.65] text-black/70">
                     The Heiwa app helps you step out of the noise and create a personal soundscape for rest,
                     focus, and meaningful quiet.
                   </p>
@@ -881,7 +905,8 @@ export default function LandingPage() {
                   alt="Heiwa app shown on a phone"
                   width={1536}
                   height={1024}
-                  priority
+                  preload
+                  fetchPriority="high"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-full w-full object-cover object-right"
                 />
@@ -898,7 +923,7 @@ export default function LandingPage() {
               <p className="mb-5 text-xs font-extrabold uppercase tracking-[.18em] text-[#168f70]">Made for your mind</p>
               <h2 className="max-w-2xl text-5xl font-extrabold leading-[.98] sm:text-6xl">Less noise. More of what you need.</h2>
             </div>
-            <p className="max-w-lg self-end text-lg leading-relaxed text-ink/55 lg:justify-self-end">
+            <p className="max-w-lg self-end text-lg leading-relaxed text-ink/70 lg:justify-self-end">
               Heiwa adapts to the moment, whether you’re settling into deep work, a book, or bed.
             </p>
           </div>
@@ -908,14 +933,14 @@ export default function LandingPage() {
                 <div>
                   <span className="mb-16 grid h-12 w-12 place-items-center rounded-2xl bg-white text-xl shadow-sm">≋</span>
                   <h3 className="text-3xl font-extrabold">Mix your own atmosphere</h3>
-                  <p className="mt-4 max-w-sm leading-relaxed text-ink/55">Build a soundscape with independent layers. Make rain warmer, waves quieter, or add just enough piano.</p>
+                  <p className="mt-4 max-w-sm leading-relaxed text-ink/70">Build a soundscape with independent layers. Make rain warmer, waves quieter, or add just enough piano.</p>
                 </div>
                 <div className="rounded-[1.7rem] bg-white p-4 shadow-soft">
                   {layers.map((item, i) => (
                     <div key={item.name} className="mb-2 flex items-center gap-3 rounded-2xl bg-[#f5f8f6] p-3 last:mb-0">
                       <span className={`grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br text-white ${item.color}`}>{item.icon}</span>
                       <span className="flex-1 text-sm font-bold">{item.name}</span>
-                      <span className="text-xs font-bold text-ink/40">{[72, 58, 45][i]}%</span>
+                      <span className="text-xs font-bold text-ink/65">{[72, 58, 45][i]}%</span>
                     </div>
                   ))}
                 </div>
@@ -924,10 +949,10 @@ export default function LandingPage() {
             <article className="rounded-[2rem] bg-ink p-8 text-white">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-xl">◷</span>
               <div className="my-12 text-center">
-                <span className="text-6xl font-extrabold">30</span><span className="text-xl text-white/50"> min</span>
+                <span className="text-6xl font-extrabold">30</span><span className="text-xl text-white/80"> min</span>
               </div>
               <h3 className="text-2xl font-extrabold">A timer that lets go</h3>
-              <p className="mt-3 leading-relaxed text-white/55">Ease into focus or sleep. Your sounds gently fade when time is up.</p>
+              <p className="mt-3 leading-relaxed text-white/80">Ease into focus or sleep. Your sounds gently fade when time is up.</p>
             </article>
             <article className="rounded-[2rem] bg-[#f5eadf] p-8">
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-xl">☾</span>
@@ -935,14 +960,14 @@ export default function LandingPage() {
                 {[35, 60, 45, 85, 55, 72, 40].map((h, i) => <span key={i} style={{ height: `${h}%` }} className="w-3 rounded-full bg-[#dc8b5e]" />)}
               </div>
               <h3 className="text-2xl font-extrabold">Made to disappear</h3>
-              <p className="mt-3 leading-relaxed text-ink/55">Simple controls, no clutter. Find your space and return to what matters.</p>
+              <p className="mt-3 leading-relaxed text-ink/70">Simple controls, no clutter. Find your space and return to what matters.</p>
             </article>
             <article className="overflow-hidden rounded-[2rem] bg-[#dee8fa] p-8 md:col-span-1 lg:col-span-2">
               <div className="grid items-center gap-8 md:grid-cols-2">
                 <div>
                   <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-xl">♡</span>
                   <h3 className="mt-14 text-3xl font-extrabold">Save the places you love</h3>
-                  <p className="mt-4 leading-relaxed text-ink/55">Your favorite combinations stay close, ready whenever the day gets loud.</p>
+                  <p className="mt-4 leading-relaxed text-ink/70">Your favorite combinations stay close, ready whenever the day gets loud.</p>
                 </div>
                 <div className="space-y-3">
                   {["Rainy reading", "Forest reset", "Deep sleep drift"].map((mix, i) => (
@@ -967,7 +992,7 @@ export default function LandingPage() {
               <p className="mb-5 text-xs font-extrabold uppercase tracking-[.18em] text-[#168f70]">The sound library</p>
               <h2 className="text-5xl font-extrabold leading-[.98] sm:text-6xl">Find your quiet.</h2>
             </div>
-            <p className="max-w-md text-lg text-ink/55">Nature, rooms, textures, and instruments made to blend beautifully.</p>
+            <p className="max-w-md text-lg text-ink/70">Nature, rooms, textures, and instruments made to blend beautifully.</p>
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {soundCards.map((sound) => {
@@ -983,7 +1008,7 @@ export default function LandingPage() {
                     </div>
                     <div className="mt-auto">
                       <h3 className="text-3xl font-extrabold">{sound.name}</h3>
-                      <p className="mt-2 text-white/70">{sound.detail}</p>
+                      <p className="mt-2 text-white/85">{sound.detail}</p>
                       <button
                         onClick={() => setPlayingSound(playing ? null : sound.name)}
                         className="mt-6 grid h-14 w-14 place-items-center rounded-full bg-white text-ink shadow-xl transition group-hover:scale-105"
@@ -1015,14 +1040,14 @@ export default function LandingPage() {
               />
             </div>
             <div className="absolute -right-4 bottom-20 rounded-2xl bg-white px-5 py-4 shadow-xl sm:-right-16">
-              <p className="text-xs font-bold text-ink/40">Tonight&apos;s space</p>
+              <p className="text-xs font-bold text-ink/65">Tonight&apos;s space</p>
               <p className="mt-1 font-extrabold">Rain softly · 30m</p>
             </div>
           </div>
           <div>
             <p className="mb-5 text-xs font-extrabold uppercase tracking-[.18em] text-[#168f70]">Small ritual, real shift</p>
             <h2 className="max-w-xl text-5xl font-extrabold leading-[.98] sm:text-6xl">A softer room is one tap away.</h2>
-            <p className="mt-7 max-w-lg text-lg leading-relaxed text-ink/55">No feeds. No streaks to maintain. Just thoughtful sound and a gentle timer, ready when you are.</p>
+            <p className="mt-7 max-w-lg text-lg leading-relaxed text-ink/70">No feeds. No streaks to maintain. Just thoughtful sound and a gentle timer, ready when you are.</p>
             <ul className="mt-9 space-y-4">
               {["Layer and tune every sound", "Save unlimited personal mixes", "Gentle timer for focus and sleep", "Take downloaded spaces offline"].map((item) => (
                 <li key={item} className="flex items-center gap-3 font-bold">
@@ -1106,7 +1131,7 @@ export default function LandingPage() {
           <div className="relative">
             <div className="mx-auto mb-8 grid h-20 w-20 place-items-center rounded-[1.7rem] bg-white text-4xl text-ink shadow-xl">☁</div>
             <h2 className="mx-auto max-w-4xl text-5xl font-extrabold leading-[.95] sm:text-7xl">Make some space for yourself.</h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-white/70">Your next quiet moment is closer than you think. Start listening for free.</p>
+            <p className="mx-auto mt-6 max-w-xl text-lg text-white/85">Your next quiet moment is closer than you think. Start listening for free.</p>
             <div className="mt-9"><Button dark={false}>Download on the App Store</Button></div>
           </div>
         </div>

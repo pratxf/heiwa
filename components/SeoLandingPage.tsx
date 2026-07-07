@@ -62,7 +62,7 @@ export default function SeoLandingPage({
           </Link>
         </div>
         <div className="relative h-[420px] overflow-hidden rounded-[2rem]">
-          <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+          <Image src={image} alt={imageAlt} fill preload fetchPriority="high" sizes="(min-width: 1280px) 616px, (min-width: 1024px) 50vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#10231c]/25 to-transparent" />
         </div>
       </header>
