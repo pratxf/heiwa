@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.heiwa.fun/page-sitemap.xml
+Sitemap: https://www.heiwa.fun/sitemap.xml
