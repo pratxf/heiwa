@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.heiwa.fun/sitemap.xml
+Sitemap: https://www.heiwa.fun/sitemap_index.xml
